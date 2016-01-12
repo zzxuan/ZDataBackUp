@@ -1,0 +1,6 @@
+*.build
+*.mak
+*.obj
+*.ncb
+*.htm
+src/minizlib/minizlib/minizlib.vcproj.SC-201601021901.Administrator.user
