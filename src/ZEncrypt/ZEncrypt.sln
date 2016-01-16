@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZEncrypt", "ZEncrypt\ZEncrypt.vcproj", "{D583E457-D20E-47AE-9A0F-4D729FCE204F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZEncryptTest", "ZEncryptTest\ZEncryptTest.vcproj", "{C405A5DE-71FD-4081-A5F0-12046EED975E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D583E457-D20E-47AE-9A0F-4D729FCE204F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D583E457-D20E-47AE-9A0F-4D729FCE204F}.Debug|Win32.Build.0 = Debug|Win32
+		{D583E457-D20E-47AE-9A0F-4D729FCE204F}.Release|Win32.ActiveCfg = Release|Win32
+		{D583E457-D20E-47AE-9A0F-4D729FCE204F}.Release|Win32.Build.0 = Release|Win32
+		{C405A5DE-71FD-4081-A5F0-12046EED975E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C405A5DE-71FD-4081-A5F0-12046EED975E}.Debug|Win32.Build.0 = Debug|Win32
+		{C405A5DE-71FD-4081-A5F0-12046EED975E}.Release|Win32.ActiveCfg = Release|Win32
+		{C405A5DE-71FD-4081-A5F0-12046EED975E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

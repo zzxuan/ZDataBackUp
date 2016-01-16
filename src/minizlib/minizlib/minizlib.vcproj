@@ -57,7 +57,6 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\common\lib\$(ProjectName).lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -73,6 +72,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy /b &quot;$(InputDir)zip.h&quot; &quot;../../common/include/zip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(InputDir)unzip.h&quot; &quot;../../common/include/unzip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)minizlib.lib&quot; &quot;../../common/lib/minizlib.lib&quot;;"
 			/>
 		</Configuration>
 		<Configuration
@@ -118,7 +118,6 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\common\lib\$(ProjectName).lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -134,6 +133,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy /b &quot;$(InputDir)zip.h&quot; &quot;../../common/include/zip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(InputDir)unzip.h&quot; &quot;../../common/include/unzip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)minizlib.lib&quot; &quot;../../common/lib/minizlib.lib&quot;;"
 			/>
 		</Configuration>
 	</Configurations>
@@ -146,83 +146,91 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\common\include\minizlib\adler32.c"
+				RelativePath=".\adler32.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\compress.c"
+				RelativePath=".\compress.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\crc32.c"
+				RelativePath=".\crc32.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\deflate.c"
+				RelativePath=".\deflate.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\gzclose.c"
+				RelativePath=".\gzclose.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\gzlib.c"
+				RelativePath=".\gzlib.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\gzread.c"
+				RelativePath=".\gzread.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\gzwrite.c"
+				RelativePath=".\gzwrite.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\infback.c"
+				RelativePath=".\infback.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\inffast.c"
+				RelativePath=".\inffast.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\inflate.c"
+				RelativePath=".\inflate.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\inftrees.c"
+				RelativePath=".\inftrees.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\ioapi.c"
+				RelativePath=".\ioapi.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\iowin32.c"
+				RelativePath=".\iowin32.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\mztools.c"
+				RelativePath=".\miniunz.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\trees.c"
+				RelativePath=".\minizip.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\uncompr.c"
+				RelativePath=".\mztools.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\unzip.c"
+				RelativePath=".\trees.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\zip.c"
+				RelativePath=".\uncompr.c"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\zutil.c"
+				RelativePath=".\unzip.c"
+				>
+			</File>
+			<File
+				RelativePath=".\zip.c"
+				>
+			</File>
+			<File
+				RelativePath=".\zutil.c"
 				>
 			</File>
 		</Filter>
@@ -232,71 +240,71 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\common\include\minizlib\crc32.h"
+				RelativePath=".\crc32.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\crypt.h"
+				RelativePath=".\crypt.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\deflate.h"
+				RelativePath=".\deflate.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\gzguts.h"
+				RelativePath=".\gzguts.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\inffast.h"
+				RelativePath=".\inffast.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\inffixed.h"
+				RelativePath=".\inffixed.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\inflate.h"
+				RelativePath=".\inflate.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\inftrees.h"
+				RelativePath=".\inftrees.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\ioapi.h"
+				RelativePath=".\ioapi.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\iowin32.h"
+				RelativePath=".\iowin32.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\mztools.h"
+				RelativePath=".\mztools.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\trees.h"
+				RelativePath=".\trees.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\unzip.h"
+				RelativePath=".\unzip.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\zconf.h"
+				RelativePath=".\zconf.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\zip.h"
+				RelativePath=".\zip.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\zlib.h"
+				RelativePath=".\zlib.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\common\include\minizlib\zutil.h"
+				RelativePath=".\zutil.h"
 				>
 			</File>
 		</Filter>
@@ -308,6 +316,10 @@
 		</Filter>
 		<File
 			RelativePath="..\..\common\include\minizlib\zlib.3.pdf"
+			>
+		</File>
+		<File
+			RelativePath=".\zlib.3.pdf"
 			>
 		</File>
 	</Files>

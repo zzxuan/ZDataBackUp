@@ -1,0 +1,141 @@
+1>------ 已启动全部重新生成: 项目: ZEncryptTest, 配置: Release Win32 ------
+2>------ 已启动全部重新生成: 项目: ZEncrypt, 配置: Release Win32 ------
+1>正在删除项目“ZEncryptTest”(配置“Release|Win32”)的中间文件和输出文件
+2>正在删除项目“ZEncrypt”(配置“Release|Win32”)的中间文件和输出文件
+2>正在编译...
+1>正在编译...
+2>stdafx.cpp
+1>stdafx.cpp
+1>正在编译...
+1>ZEncryptTest.cpp
+2>正在编译...
+2>ZEncrypt.cpp
+2>EncryptXOR.cpp
+2>EncryptRC4.cpp
+2>EncryptNULL.cpp
+2>EncryptBase.cpp
+2>正在编译...
+1>正在链接...
+2>dllmain.cpp
+1>正在生成代码
+1>已完成代码的生成
+1>正在嵌入清单...
+2>正在链接...
+1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\src\ZEncrypt\ZEncryptTest\Release\BuildLog.htm”
+1>ZEncryptTest - 0 个错误，0 个警告
+2>   正在创建库 E:\WORK\git\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.lib 和对象 E:\WORK\git\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.exp
+2>正在生成代码
+2>已完成代码的生成
+2>正在嵌入清单...
+2>正在执行生成后事件...
+2>已复制         1 个文件。
+2>已复制         1 个文件。
+2>已复制         1 个文件。
+2>已复制         1 个文件。
+2>生成日志保存在“file://e:\WORK\git\ZDataBackUp\src\ZEncrypt\ZEncrypt\Release\BuildLog.htm”
+2>ZEncrypt - 0 个错误，0 个警告
+========== 全部重新生成: 成功 2 个，失败 0 个，跳过 0 个 ==========
+
+1>------ 已启动全部重新生成: 项目: minizlib, 配置: Release Win32 ------
+1>正在删除项目“minizlib”(配置“Release|Win32”)的中间文件和输出文件
+1>正在编译...
+1>adler32.c
+1>zutil.c
+1>zip.c
+1>unzip.c
+1>uncompr.c
+1>trees.c
+1>mztools.c
+1>.\mztools.c(38) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\mztools.c(39) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\mztools.c(40) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\mztools.c(257) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>minizip.c
+1>.\minizip.c(158) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\minizip.c(189) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\minizip.c(228) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\minizip.c(324) : warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\string.h(157) : 参见“strncpy”的声明
+1>.\minizip.c(334) : warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>.\minizip.c(352) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(306) : 参见“scanf”的声明
+1>.\minizip.c(463) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>miniunz.c
+1>.\miniunz.c(154) : warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>.\miniunz.c(380) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\miniunz.c(390) : warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(306) : 参见“scanf”的声明
+1>.\miniunz.c(411) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\miniunz.c(420) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\miniunz.c(609) : warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\string.h(157) : 参见“strncpy”的声明
+1>.\miniunz.c(621) : warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>iowin32.c
+1>ioapi.c
+1>inftrees.c
+1>inflate.c
+1>inffast.c
+1>infback.c
+1>gzwrite.c
+1>.\gzwrite.c(84) : warning C4996: 'write': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _write. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\io.h(322) : 参见“write”的声明
+1>.\gzwrite.c(86) : warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\string.h(126) : 参见“strerror”的声明
+1>.\gzwrite.c(102) : warning C4996: 'write': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _write. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\io.h(322) : 参见“write”的声明
+1>.\gzwrite.c(103) : warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\string.h(126) : 参见“strerror”的声明
+1>.\gzwrite.c(357) : warning C4996: 'vsnprintf': This function or variable may be unsafe. Consider using vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(350) : 参见“vsnprintf”的声明
+1>.\gzwrite.c(573) : warning C4996: 'close': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _close. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\io.h(306) : 参见“close”的声明
+1>gzread.c
+1>.\gzread.c(30) : warning C4996: 'read': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _read. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\io.h(317) : 参见“read”的声明
+1>.\gzread.c(36) : warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\string.h(126) : 参见“strerror”的声明
+1>.\gzread.c(591) : warning C4996: 'close': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _close. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\io.h(306) : 参见“close”的声明
+1>gzlib.c
+1>.\gzlib.c(193) : warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdlib.h(534) : 参见“wcstombs”的声明
+1>.\gzlib.c(208) : warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdlib.h(534) : 参见“wcstombs”的声明
+1>.\gzlib.c(214) : warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(358) : 参见“_snprintf”的声明
+1>.\gzlib.c(245) : warning C4996: '_wopen': This function or variable may be unsafe. Consider using _wsopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\io.h(276) : 参见“_wopen”的声明
+1>.\gzlib.c(245) : warning C4996: 'open': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _open. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\io.h(316) : 参见“open”的声明
+1>.\gzlib.c(294) : warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(358) : 参见“_snprintf”的声明
+1>.\gzlib.c(608) : warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(358) : 参见“_snprintf”的声明
+1>gzclose.c
+1>deflate.c
+1>正在编译...
+1>crc32.c
+1>compress.c
+1>正在创建库...
+1>miniunz.obj : warning LNK4006: _main 已在 minizip.obj 中定义；已忽略第二个定义
+1>miniunz.obj : warning LNK4006: _do_help 已在 minizip.obj 中定义；已忽略第二个定义
+1>miniunz.obj : warning LNK4006: _do_banner 已在 minizip.obj 中定义；已忽略第二个定义
+1>正在执行生成后事件...
+1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\src\minizlib\minizlib\Release\BuildLog.htm”
+1>minizlib - 0 个错误，37 个警告
+========== 全部重新生成: 成功 1 个，失败 0 个，跳过 0 个 ==========
+
