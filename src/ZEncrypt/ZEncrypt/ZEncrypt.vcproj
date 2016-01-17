@@ -86,7 +86,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy /b &quot;$(InputDir)ZEncrypt.h&quot; &quot;../../common/include/ZEncrypt.h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.dll&quot; &quot;../../BIN/$(ConfigurationName)/ZEncrypt.dll&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.lib&quot; &quot;../../common/lib/ZEncrypt..lib&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.pdb&quot; &quot;../../BIN/PDB/$(ConfigurationName)/ZEncrypt.pdb&quot;;"
+				CommandLine="copy /b &quot;$(InputDir)ZEncrypt.h&quot; &quot;../../common/include/ZEncrypt.h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.dll&quot; &quot;../../BIN/$(ConfigurationName)/ZEncrypt.dll&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.lib&quot; &quot;../../common/lib/ZEncrypt.lib&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.pdb&quot; &quot;../../BIN/PDB/$(ConfigurationName)/ZEncrypt.pdb&quot;;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -162,7 +162,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy /b &quot;$(InputDir)ZEncrypt.h&quot; &quot;../../common/include/ZEncrypt.h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.dll&quot; &quot;../../BIN/$(ConfigurationName)/ZEncrypt.dll&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.lib&quot; &quot;../../common/lib/ZEncrypt..lib&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.pdb&quot; &quot;../../BIN/PDB/$(ConfigurationName)/ZEncrypt.pdb&quot;;"
+				CommandLine="copy /b &quot;$(InputDir)ZEncrypt.h&quot; &quot;../../common/include/ZEncrypt.h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.dll&quot; &quot;../../BIN/$(ConfigurationName)/ZEncrypt.dll&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.lib&quot; &quot;../../common/lib/ZEncrypt..lib&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)ZEncrypt.pdb&quot; &quot;../../BIN/PDB/$(ConfigurationName)/ZEncrypt.pdb&quot;;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>

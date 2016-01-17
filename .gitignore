@@ -5,3 +5,5 @@
 *.htm
 src/minizlib/minizlib/minizlib.vcproj.SC-201601021901.Administrator.user
 *.idb
+*.ilk
+*.dep

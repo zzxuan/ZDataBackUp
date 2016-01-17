@@ -41,7 +41,7 @@ HRESULT UnInitEncrypt()
 	return ERROR_SUCCESS;
 }
 
-HRESULT ZEncryptBuffer(
+HRESULT WINAPI ZEncryptBuffer(
 					   __in PVOID inputbuf,
 					   __in size_t intputbuflen,
 					   __out PVOID outputbuf,
@@ -66,7 +66,7 @@ HRESULT ZEncryptBuffer(
 	return ERROR_INVALID_FUNCTION;
 }
 
-HRESULT ZDecryptBuffer(
+HRESULT WINAPI ZDecryptBuffer(
 					   __in PVOID inputbuf,
 					   __in size_t intputbuflen,
 					   __inout PVOID outputbuf,

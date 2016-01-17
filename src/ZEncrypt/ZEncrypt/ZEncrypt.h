@@ -11,7 +11,7 @@ enum ENCRYPTTYPE
 };
 
 
-HRESULT ZEncryptBuffer(
+HRESULT WINAPI ZEncryptBuffer(
 					   __in PVOID inputbuf,
 					   __in size_t intputbuflen,
 					   __out PVOID outputbuf,
@@ -21,7 +21,7 @@ HRESULT ZEncryptBuffer(
 					   __in size_t passwordlen
 					   );
 
-HRESULT ZDecryptBuffer(
+HRESULT WINAPI ZDecryptBuffer(
 					   __in PVOID inputbuf,
 					   __in size_t intputbuflen,
 					   __out PVOID outputbuf,
