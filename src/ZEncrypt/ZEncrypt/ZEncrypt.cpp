@@ -10,6 +10,7 @@
 #include "EncryptNULL.h"
 #include "EncryptXOR.h"
 #include "EncryptRC4.h"
+#include "EncryptMD5.h"
 
 #define ENCRYPTMAP std::map<ULONG,CEncryptBase*> 
 
@@ -21,7 +22,7 @@ HRESULT InitEncrypt()
 	g_EncryptMap[ENCRYPT_NULL] = new CEncryptNULL;
 	g_EncryptMap[ENCRYPT_XOR] = new CEncryptXOR;
 	g_EncryptMap[ENCRYPT_RC4] = new CEncryptRC4;
-
+	g_EncryptMap[ENCRYPT_MD5] = new CEncryptMD5;
 
 	return ERROR_SUCCESS;
 }

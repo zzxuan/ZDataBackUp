@@ -201,6 +201,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\EncryptMD5.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\EncryptNULL.cpp"
 				>
 			</File>
@@ -248,6 +252,10 @@
 			>
 			<File
 				RelativePath=".\EncryptBase.h"
+				>
+			</File>
+			<File
+				RelativePath=".\EncryptMD5.h"
 				>
 			</File>
 			<File

@@ -2,7 +2,8 @@
 #pragma once
 #include "ZEncryptFile.h"
 
-#define FREAD_DATABLUK_SIZE	1024
+#define FREAD_HEAD_SIZE	512
+#define FREAD_DATABLUK_SIZE	1024*4
 
 class CEncryptFile
 {

@@ -20,3 +20,8 @@
 #include "../../common/include/ZEncrypt.h"
 
 #pragma comment(lib,"../../common/lib/ZEncrypt.lib")
+
+#define converlen(len) ((USHORT)len ^ 0x54)
+
+size_t DefaultEncrpt(PVOID bufin,PVOID bufout,size_t lenin);
+size_t DefaultDecrpt(PVOID bufin,PVOID bufout,size_t lenin);

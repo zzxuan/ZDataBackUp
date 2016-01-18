@@ -4,6 +4,10 @@
 #include "stdafx.h"
 #include "ZEncryptFile.h"
 
+#include "EncryptFile.h"
+
+CEncryptFile g_EncryptFile;
+
 HRESULT WINAPI ZEncryptFile(
 							__in LPSTR filePath,
 							__in PZEncryptFileWriteFile PWriteFile,
@@ -13,7 +17,7 @@ HRESULT WINAPI ZEncryptFile(
 							__in size_t passwordlen
 							)
 {
-	return ERROR_SUCCESS;
+	return g_EncryptFile.EncryptFile(filePath,PWriteFile,handlewrite,encryptType,password,passwordlen);
 }
 
 HRESULT WINAPI ZDecryptFile(
