@@ -15,7 +15,7 @@
 
 // TODO: 在此处引用程序需要的其他头文件
 #include <assert.h>
-#include "EncryptFile.h"
+#include "ZEncryptFile.h"
 
 #include "../../common/include/ZEncrypt.h"
 
@@ -25,3 +25,6 @@
 
 size_t DefaultEncrpt(PVOID bufin,PVOID bufout,size_t lenin);
 size_t DefaultDecrpt(PVOID bufin,PVOID bufout,size_t lenin);
+
+#define FREAD_HEAD_SIZE	512
+#define FREAD_DATABLUK_SIZE	1024*4

@@ -173,10 +173,6 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\DecryptFile.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\dllmain.cpp"
 				>
 				<FileConfiguration
@@ -199,10 +195,6 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\EncryptFile.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
@@ -223,6 +215,14 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\ZCDecryptFile.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ZCEncryptFile.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ZEncryptFile.cpp"
 				>
 			</File>
@@ -237,19 +237,19 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\DecryptFile.h"
-				>
-			</File>
-			<File
-				RelativePath=".\EncryptFile.h"
-				>
-			</File>
-			<File
 				RelativePath=".\stdafx.h"
 				>
 			</File>
 			<File
 				RelativePath=".\targetver.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ZCDecryptFile.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ZCEncryptFile.h"
 				>
 			</File>
 			<File

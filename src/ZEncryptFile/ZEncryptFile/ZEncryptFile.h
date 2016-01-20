@@ -17,7 +17,7 @@ HRESULT WINAPI ZDecryptFile(
 							__in LPSTR filePath,
 							__in PZEncryptFileReadFile PReadFile,
 							__in PVOID handleread,
-							__in UINT encryptType,
+							//__in UINT encryptType,
 							__in PVOID password,
 							__in size_t passwordlen
 							);
