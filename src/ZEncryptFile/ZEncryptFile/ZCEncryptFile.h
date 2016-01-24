@@ -30,4 +30,6 @@ private:
 	HRESULT WriteHeader();
 
 	HRESULT WriteOneBulk(PVOID data,size_t datasize);
+
+	HRESULT zCompressOneBulk(PVOID * comdata,size_t *comdatalen,PVOID data,size_t datasize);
 };

@@ -1,6 +1,9 @@
 #ifndef __ZENCRYPTFILE__
 #define __ZENCRYPTFILE__
 
+#define ERROR_FILE_HASCHANGED 0xFFFF0001
+
+
 typedef size_t (WINAPI * PZEncryptFileReadFile)(PVOID buf,UINT bufsize,PVOID handle);
 typedef size_t (WINAPI * PZEncryptFileWriteFile)(PVOID buf,UINT bufsize,PVOID handle);
 

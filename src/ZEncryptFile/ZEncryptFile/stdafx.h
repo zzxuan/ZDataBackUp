@@ -22,9 +22,10 @@
 #pragma comment(lib,"../../common/lib/ZEncrypt.lib")
 
 #define converlen(len) ((USHORT)len ^ 0x54)
+//#define converlen(len) ((USHORT)len)
 
 size_t DefaultEncrpt(PVOID bufin,PVOID bufout,size_t lenin);
 size_t DefaultDecrpt(PVOID bufin,PVOID bufout,size_t lenin);
 
 #define FREAD_HEAD_SIZE	512
-#define FREAD_DATABLUK_SIZE	1024*4
+#define FREAD_DATABLUK_SIZE	1024 * 56

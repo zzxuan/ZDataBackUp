@@ -1,7 +1,7 @@
 1>------ 已启动全部重新生成: 项目: ZEncryptTest, 配置: Release Win32 ------
 2>------ 已启动全部重新生成: 项目: ZEncrypt, 配置: Release Win32 ------
-1>正在删除项目“ZEncryptTest”(配置“Release|Win32”)的中间文件和输出文件
 2>正在删除项目“ZEncrypt”(配置“Release|Win32”)的中间文件和输出文件
+1>正在删除项目“ZEncryptTest”(配置“Release|Win32”)的中间文件和输出文件
 2>正在编译...
 1>正在编译...
 2>stdafx.cpp
@@ -13,6 +13,13 @@
 2>EncryptXOR.cpp
 2>EncryptRC4.cpp
 2>EncryptNULL.cpp
+2>EncryptMD5.cpp
+2>.\EncryptMD5.cpp(57) : warning C4018: “<”: 有符号/无符号不匹配
+2>.\EncryptMD5.cpp(70) : warning C4018: “<”: 有符号/无符号不匹配
+2>.\EncryptMD5.cpp(187) : warning C4018: “>=”: 有符号/无符号不匹配
+2>.\EncryptMD5.cpp(192) : warning C4018: “<”: 有符号/无符号不匹配
+2>.\EncryptMD5.cpp(230) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
 2>EncryptBase.cpp
 2>正在编译...
 1>正在链接...
@@ -25,6 +32,7 @@
 1>ZEncryptTest - 0 个错误，0 个警告
 2>   正在创建库 E:\WORK\git\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.lib 和对象 E:\WORK\git\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.exp
 2>正在生成代码
+2>e:\work\git\zdatabackup\src\zencrypt\zencrypt\encryptmd5.cpp(38) : warning C4715: “CEncryptMD5::EncryptBuffer”: 不是所有的控件路径都返回值
 2>已完成代码的生成
 2>正在嵌入清单...
 2>正在执行生成后事件...
@@ -33,7 +41,7 @@
 2>已复制         1 个文件。
 2>已复制         1 个文件。
 2>生成日志保存在“file://e:\WORK\git\ZDataBackUp\src\ZEncrypt\ZEncrypt\Release\BuildLog.htm”
-2>ZEncrypt - 0 个错误，0 个警告
+2>ZEncrypt - 0 个错误，6 个警告
 ========== 全部重新生成: 成功 2 个，失败 0 个，跳过 0 个 ==========
 
 1>------ 已启动全部重新生成: 项目: minizlib, 配置: Release Win32 ------
@@ -135,7 +143,55 @@
 1>已复制         1 个文件。
 1>已复制         1 个文件。
 1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>已复制         1 个文件。
 1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\src\minizlib\minizlib\Release\BuildLog.htm”
 1>minizlib - 0 个错误，37 个警告
 ========== 全部重新生成: 成功 1 个，失败 0 个，跳过 0 个 ==========
+
+1>------ 已启动全部重新生成: 项目: zencryptfileTest, 配置: Release Win32 ------
+2>------ 已启动全部重新生成: 项目: ZEncryptFile, 配置: Release Win32 ------
+2>正在删除项目“ZEncryptFile”(配置“Release|Win32”)的中间文件和输出文件
+1>正在删除项目“zencryptfileTest”(配置“Release|Win32”)的中间文件和输出文件
+2>正在编译...
+1>正在编译...
+2>stdafx.cpp
+1>stdafx.cpp
+1>正在编译...
+2>正在编译...
+1>zencryptfileTest.cpp
+2>ZEncryptFile.cpp
+2>ZCEncryptFile.cpp
+2>.\ZCEncryptFile.cpp(45) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+2>ZCDecryptFile.cpp
+2>.\ZCDecryptFile.cpp(51) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+2>.\ZCDecryptFile.cpp(150) : warning C4532: “return”: 在终止处理期间从 __finally 块跳出的行为未定义
+2>正在编译...
+2>dllmain.cpp
+1>.\zencryptfileTest.cpp(10) : warning C4081: 应输入“newline”；找到“;”
+1>.\zencryptfileTest.cpp(26) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\zencryptfileTest.cpp(37) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>正在链接...
+1>正在生成代码
+2>正在链接...
+1>已完成代码的生成
+1>正在嵌入清单...
+2>   正在创建库 E:\WORK\git\ZDataBackUp\src\ZEncryptFile\Release\ZEncryptFile.lib 和对象 E:\WORK\git\ZDataBackUp\src\ZEncryptFile\Release\ZEncryptFile.exp
+2>正在生成代码
+1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\src\ZEncryptFile\zencryptfileTest\Release\BuildLog.htm”
+1>zencryptfileTest - 0 个错误，3 个警告
+2>已完成代码的生成
+2>正在嵌入清单...
+2>正在执行生成后事件...
+2>已复制         1 个文件。
+2>已复制         1 个文件。
+2>已复制         1 个文件。
+2>已复制         1 个文件。
+2>生成日志保存在“file://e:\WORK\git\ZDataBackUp\src\ZEncryptFile\ZEncryptFile\Release\BuildLog.htm”
+2>ZEncryptFile - 0 个错误，3 个警告
+========== 全部重新生成: 成功 2 个，失败 0 个，跳过 0 个 ==========
 

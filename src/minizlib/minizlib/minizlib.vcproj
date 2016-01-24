@@ -72,7 +72,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy /b &quot;$(InputDir)zip.h&quot; &quot;../../common/include/zip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(InputDir)unzip.h&quot; &quot;../../common/include/unzip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)minizlib.lib&quot; &quot;../../common/lib/minizlib.lib&quot;;"
+				CommandLine="copy /b &quot;$(InputDir)zip.h&quot; &quot;../../common/include/zip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(InputDir)unzip.h&quot; &quot;../../common/include/unzip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)minizlib.lib&quot; &quot;../../common/lib/minizlib.lib&quot;;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -133,7 +133,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy /b &quot;$(InputDir)zip.h&quot; &quot;../../common/include/zip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(InputDir)unzip.h&quot; &quot;../../common/include/unzip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)minizlib.lib&quot; &quot;../../common/lib/minizlib.lib&quot;;"
+				CommandLine="copy /b &quot;$(InputDir)zip.h&quot; &quot;../../common/include/zip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(InputDir)zlib.h&quot; &quot;../../common/include/zlib.h&quot;;&#x0D;&#x0A;copy /b &quot;$(InputDir)zconf.h&quot; &quot;../../common/include/zconf.h&quot;;&#x0D;&#x0A;copy /b &quot;$(InputDir)unzip.h&quot; &quot;../../common/include/unzip.h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)minizlib.lib&quot; &quot;../../common/lib/minizlib.lib&quot;;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>
@@ -315,11 +315,11 @@
 			>
 		</Filter>
 		<File
-			RelativePath="..\..\common\include\minizlib\zlib.3.pdf"
+			RelativePath=".\zlib.3.pdf"
 			>
 		</File>
 		<File
-			RelativePath=".\zlib.3.pdf"
+			RelativePath="..\..\common\include\minizlib\zlib.3.pdf"
 			>
 		</File>
 	</Files>

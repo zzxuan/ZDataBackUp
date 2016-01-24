@@ -6,5 +6,7 @@ echo "Брвы ./ZEncrypt/ZEncrypt.sln"
 devenv.exe ./ZEncrypt/ZEncrypt.sln /Rebuild Release /out build.log
 echo "Брвы ./minizlib/minizlib.sln"
 devenv.exe ./minizlib/minizlib.sln /Rebuild Release /out build.log
+echo "Брвы ./ZEncryptFile/ZEncryptFile.sln"
+devenv.exe ./ZEncryptFile/ZEncryptFile.sln /Rebuild Release /out build.log
 echo "finished"
 pause

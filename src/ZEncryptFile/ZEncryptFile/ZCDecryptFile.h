@@ -31,7 +31,9 @@ private:
 	HRESULT GetHeaderAndCheckPassword();
 	//HRESULT ReadAndTransferOneBulk();
 
-	PVOID GetOneBulk(UINT &bulksize);//必须释放内存
+	PVOID GetOneBulk(UINT &bulksize,UINT &orgSize);//必须释放内存
+
+	HRESULT UnCompressOneBuffer(PVOID * comdata,size_t *comdatalen,PVOID data,size_t datasize);
 
 	void SetFileMsg();
 };

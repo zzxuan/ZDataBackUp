@@ -5,8 +5,10 @@
 #include <windows.h>
 #include "../ZEncryptFile/ZEncryptFile.h"
 #include "../../common/include/ZEncrypt.h"
+#include "../../common/include/zlib.h"
 
 #pragma comment(lib,"../Debug/ZEncryptFile.lib");
+#pragma comment(lib,"../../common/lib/minizlib.lib")
 
 size_t WINAPI WriteFile(PVOID buf,UINT bufsize,PVOID handle)
 {
@@ -20,6 +22,7 @@ size_t WINAPI ReadFile(PVOID buf,UINT bufsize,PVOID handle)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	DWORD tick = GetTickCount();
 	FILE *file = fopen("ttt.txt","wb");
 	if (NULL != file)
 	{
@@ -28,6 +31,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		fclose(file);
 	}
 
+	printf("加密文件 共花费 %d\n",GetTickCount() - tick);
+	tick = GetTickCount();
 
 	FILE *defile = fopen("ttt.txt","rb");
 	if (NULL != defile)
@@ -36,7 +41,9 @@ int _tmain(int argc, _TCHAR* argv[])
 			defile,"123",3);
 		fclose(file);
 	}
+	printf("解密文件 共花费 %d\n",GetTickCount() - tick);
 
+	system("pause");
 	return 0;
 }
 
