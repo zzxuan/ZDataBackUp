@@ -21,7 +21,9 @@ HRESULT CEncryptFile::ZCEncryptFile(
 								  __in PVOID handlewrite,
 								  __in UINT encryptType,
 								  __in PVOID password,
-								  __in size_t passwordlen
+								  __in size_t passwordlen,
+								  __in PVOID extendData,
+								  __in size_t extendlen
 								  )
 {
 	if (NULL == filePath
@@ -40,6 +42,9 @@ HRESULT CEncryptFile::ZCEncryptFile(
 	m_encryptType = encryptType;
 	m_password = password;
 	m_passwordlen = passwordlen;
+
+	m_extendData = extendData;
+	m_extendLen = extendlen;
 
 	HRESULT result = ERROR_SUCCESS;
 	FILE *pFile = fopen(m_filePath,"rb");
@@ -103,6 +108,15 @@ HRESULT CEncryptFile::WriteHeader()
 	FindClose(handle);
 	memcpy(writeBuf+len,&find_dataa,sizeof(WIN32_FIND_DATAA));
 	len += sizeof(WIN32_FIND_DATAA);
+
+	if (NULL != m_extendData 
+		&&m_extendLen != 0)
+	{
+		memcpy(writeBuf+len,&m_extendLen,sizeof(UINT));
+		len += sizeof(UINT);
+		memcpy(writeBuf+len,m_extendData,m_extendLen);
+		len += m_extendLen;
+	}
 
 
 	PVOID comBuf = NULL;

@@ -312,3 +312,67 @@ HRESULT WINAPI CDecryptFile::ZCGetFileInfo( __out PWIN32_FIND_DATAA pfileData,
 	return ERROR_SUCCESS;
 }
 
+HRESULT WINAPI CDecryptFile::ZCGetExternData(
+	__out PVOID pextendData, 
+	__inout size_t *pextendLen,
+	__in PZEncryptFileReadFile PReadFile,
+	__in PVOID handleread )
+{
+	if (NULL == PReadFile
+		||NULL == handleread
+		||NULL == pextendData
+		||NULL == pextendLen
+		)
+	{
+		return ERROR_INVALID_PARAMETER;
+	}
+
+	m_PReadFile = PReadFile;
+	m_handleread = handleread;
+
+
+	UINT bulksize = 0;
+	UINT orgsize = 0;
+	PVOID buf = GetOneBulk(bulksize,orgsize);
+	if (NULL == buf)
+	{
+		return ERROR_END_OF_MEDIA;
+	}
+	PUCHAR outBuf = new UCHAR[bulksize];
+
+	DefaultDecrpt(buf,outBuf,bulksize);
+	free(buf);
+	buf = NULL;
+
+	PUCHAR uncombuf = NULL;
+	size_t uncombuflen = 0;
+	if (ERROR_SUCCESS != UnCompressOneBuffer((PVOID *)&uncombuf,&uncombuflen,outBuf,bulksize))
+	{
+		delete [] outBuf;
+		outBuf = NULL;
+		return ERROR_INVALID_PARAMETER;
+	}
+	delete [] outBuf;
+	outBuf = NULL;
+	if (orgsize != uncombuflen)
+	{
+		return ERROR_FILE_HASCHANGED;
+	}
+
+	UINT offset = MD5LEN + sizeof(UINT) + sizeof(WIN32_FIND_DATAA);
+	UINT exlen = 0;
+	memcpy(&exlen,uncombuf + offset ,sizeof(UINT));
+	offset += sizeof(UINT);
+
+	if (exlen > 0)
+	{
+		memcpy(pextendData,uncombuf + offset ,exlen);
+	}
+	(*pextendLen) = exlen;
+
+
+	free(uncombuf);
+
+	return ERROR_SUCCESS;
+}
+

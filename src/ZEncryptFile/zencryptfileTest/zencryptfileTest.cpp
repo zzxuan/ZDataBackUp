@@ -27,7 +27,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (NULL != file)
 	{
 		ZEncryptFile(
-			"test.txt",(PZEncryptFileWriteFile)WriteFile,file,ENCRYPT_RC4,"123",3);
+			"test.txt",
+			(PZEncryptFileWriteFile)WriteFile,file,
+			ENCRYPT_RC4,"123",3,
+			"123456",7);
 		fclose(file);
 	}
 
@@ -47,6 +50,15 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		WIN32_FIND_DATAA filedata = {NULL};
 		ZGetFileInfo(&filedata,(PZEncryptFileReadFile)ReadFile,defile);
+		fclose(defile);
+	}
+
+	defile = fopen("ttt.txt","rb");
+	if (NULL != defile)
+	{
+		char exdata[1024] = {NULL};
+		size_t exlen = 1024;
+		ZGetExternData(exdata,&exlen,(PZEncryptFileReadFile)ReadFile,defile);
 		fclose(defile);
 	}
 

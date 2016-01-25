@@ -16,7 +16,9 @@ public:
 		__in PVOID handlewrite,
 		__in UINT encryptType,
 		__in PVOID password,
-		__in size_t passwordlen
+		__in size_t passwordlen,
+		__in PVOID extendData = NULL,
+		__in size_t extendlen = 0
 		);
 
 private:
@@ -26,6 +28,9 @@ private:
 	UINT m_encryptType;
 	PVOID m_password;
 	size_t m_passwordlen;
+
+	PVOID m_extendData;
+	size_t m_extendLen;
 
 	HRESULT WriteHeader();
 

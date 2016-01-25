@@ -16,10 +16,15 @@ HRESULT WINAPI ZEncryptFile(
 							__in PVOID handlewrite,
 							__in UINT encryptType,
 							__in PVOID password,
-							__in size_t passwordlen
+							__in size_t passwordlen,
+							__in PVOID extendData,
+							__in size_t extendlen
 							)
 {
-	return g_EncryptFile.ZCEncryptFile(filePath,PWriteFile,handlewrite,encryptType,password,passwordlen);
+	return g_EncryptFile.ZCEncryptFile(
+		filePath,PWriteFile,
+		handlewrite,encryptType,password,passwordlen
+		,extendData,extendlen);
 }
 
 HRESULT WINAPI ZDecryptFile(
@@ -39,4 +44,14 @@ HRESULT WINAPI ZGetFileInfo(__out PWIN32_FIND_DATAA pfileData,
 							__in PVOID handleread)
 {
 	return g_DecryptFile.ZCGetFileInfo(pfileData,PReadFile,handleread);
+}
+
+HRESULT WINAPI ZGetExternData(
+							   __out PVOID pextendData,
+							   __inout size_t *pextendLen,
+							   __in PZEncryptFileReadFile PReadFile,
+							   __in PVOID handleread
+							   )
+{
+	return g_DecryptFile.ZCGetExternData(pextendData,pextendLen,PReadFile,handleread);
 }

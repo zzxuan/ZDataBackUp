@@ -22,6 +22,13 @@ public:
 		__in PVOID handleread
 		);
 
+	HRESULT WINAPI ZCGetExternData(
+		__out PVOID pextendData,
+		__inout size_t *pextendLen,
+		__in PZEncryptFileReadFile PReadFile,
+		__in PVOID handleread
+		);
+
 private:
 	LPSTR m_filePath;
 	PZEncryptFileReadFile m_PReadFile;

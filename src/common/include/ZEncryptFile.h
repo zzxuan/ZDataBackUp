@@ -13,7 +13,9 @@ HRESULT WINAPI ZEncryptFile(
 							__in PVOID handlewrite,
 							__in UINT encryptType,
 							__in PVOID password,
-							__in size_t passwordlen
+							__in size_t passwordlen,
+							__in PVOID extendData = NULL,
+							__in size_t extendlen = 0
 							);
 
 HRESULT WINAPI ZDecryptFile(
@@ -29,5 +31,12 @@ HRESULT WINAPI ZGetFileInfo(__out PWIN32_FIND_DATAA pfileData,
 							__in PZEncryptFileReadFile PReadFile,
 							__in PVOID handleread
 							);
+
+HRESULT WINAPI ZGetExternData(
+							  __out PVOID pextendData,
+							  __inout size_t *pextendLen,
+							  __in PZEncryptFileReadFile PReadFile,
+							  __in PVOID handleread
+							  );
 
 #endif
