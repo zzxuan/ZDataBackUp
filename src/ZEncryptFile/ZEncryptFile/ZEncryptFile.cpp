@@ -33,3 +33,10 @@ HRESULT WINAPI ZDecryptFile(
 {
 	return g_DecryptFile.ZCDecryptFile(filePath,PReadFile,handleread,password,passwordlen);
 }
+
+HRESULT WINAPI ZGetFileInfo(__out PWIN32_FIND_DATAA pfileData,
+							__in PZEncryptFileReadFile PReadFile,
+							__in PVOID handleread)
+{
+	return g_DecryptFile.ZCGetFileInfo(pfileData,PReadFile,handleread);
+}

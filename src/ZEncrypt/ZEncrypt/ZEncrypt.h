@@ -30,4 +30,5 @@ HRESULT WINAPI ZDecryptBuffer(
 					   __in PVOID password,
 					   __in size_t passwordlen
 					   );
+HRESULT ZMD5_File (PUCHAR buf,UINT &size,char * filename);
 #endif

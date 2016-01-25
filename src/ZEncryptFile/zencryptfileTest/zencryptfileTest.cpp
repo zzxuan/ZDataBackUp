@@ -39,9 +39,16 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		ZDecryptFile("aaa.txt",(PZEncryptFileReadFile)ReadFile,
 			defile,"123",3);
-		fclose(file);
+		fclose(defile);
 	}
 	printf("解密文件 共花费 %d\n",GetTickCount() - tick);
+	defile = fopen("ttt.txt","rb");
+	if (NULL != defile)
+	{
+		WIN32_FIND_DATAA filedata = {NULL};
+		ZGetFileInfo(&filedata,(PZEncryptFileReadFile)ReadFile,defile);
+		fclose(defile);
+	}
 
 	system("pause");
 	return 0;

@@ -29,3 +29,4 @@ size_t DefaultDecrpt(PVOID bufin,PVOID bufout,size_t lenin);
 
 #define FREAD_HEAD_SIZE	512
 #define FREAD_DATABLUK_SIZE	1024 * 56
+#define MD5LEN	16

@@ -3,3 +3,4 @@ LIBRARY	"ZEncryptFile"
 EXPORTS
 	ZEncryptFile
 	ZDecryptFile
+	ZGetFileInfo

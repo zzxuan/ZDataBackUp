@@ -20,6 +20,12 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	ZDecryptBuffer(output,outsize,decbuf,&decsize,ENCRYPT_RC4,"sdasad",6);
 
+	UINT size = 16;
+	UCHAR buf1[16] = {NULL};
+	UCHAR buf2[16] = {NULL};
+	ZMD5_File(buf1,size,"test.txt");
+	ZMD5_File(buf1,size,"test1.txt");
+
 	return 0;
 }
 

@@ -16,6 +16,12 @@ public:
 		__in size_t passwordlen
 		);
 
+	HRESULT WINAPI ZCGetFileInfo(
+		__out PWIN32_FIND_DATAA pfileData,
+		__in PZEncryptFileReadFile PReadFile,
+		__in PVOID handleread
+		);
+
 private:
 	LPSTR m_filePath;
 	PZEncryptFileReadFile m_PReadFile;

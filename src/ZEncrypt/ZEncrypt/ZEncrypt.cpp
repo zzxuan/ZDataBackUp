@@ -18,7 +18,7 @@ ENCRYPTMAP g_EncryptMap;
 
 HRESULT InitEncrypt()
 {
-	printf("InitEncrypt\n");
+	//printf("InitEncrypt\n");
 	g_EncryptMap[ENCRYPT_NULL] = new CEncryptNULL;
 	g_EncryptMap[ENCRYPT_XOR] = new CEncryptXOR;
 	g_EncryptMap[ENCRYPT_RC4] = new CEncryptRC4;
@@ -29,7 +29,7 @@ HRESULT InitEncrypt()
 
 HRESULT UnInitEncrypt()
 {
-	printf("UnInitEncrypt\n");
+	//printf("UnInitEncrypt\n");
 
 	ENCRYPTMAP::iterator it;
 	for(it=g_EncryptMap.begin();it!=g_EncryptMap.end();it++)

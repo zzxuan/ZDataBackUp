@@ -219,28 +219,43 @@ void MD5_Final(MD5Context * context, unsigned char digest[16])
 
 	memset((char *) context, 0, sizeof(*context));
 }
-void MD5_File (char * filename)
+HRESULT ZMD5_File (PUCHAR buf,UINT &size,char * filename)
 {
+	if (NULL == buf
+		|| NULL == filename)
+	{
+		return ERROR_INVALID_PARAMETER;
+	}
+	const UINT md5Size = 16;
+	const UINT bufSize = 1024 * 32;
+	if (size < md5Size)
+	{
+		size = md5Size;
+		return ERROR_DS_USER_BUFFER_TO_SMALL;
+	}
+
 	FILE *file;
 	MD5Context context;
-	unsigned char buff[16];
+	unsigned char buff[md5Size];
 	int i,len;
-	unsigned char buffer[0x0400];
+	static unsigned char buffer[bufSize] = {NULL};
 
 	if (!(file = fopen (filename, "rb")))
-		printf ("%s can't be opened/n", filename);
+	{
+		return ERROR_FILE_NOT_FOUND;
+	}
 	else
 	{
 		MD5_Init (&context);
-		while (len = fread (buffer, 1, 1024, file))
-			MD5_Update (&context, buffer, len);
+		while (len = fread (buffer, 1, bufSize, file))
+		{
+			MD5_Update (&context, buffer,len);
+		}
 		MD5_Final(&context,buff);
 		fclose (file);
-		for(i=0;i<16;i++)
-		{
-			printf("%x",(buff[i] & 0xF0)>>4);
-			printf("%x",buff[i] & 0x0F);
-		}
-		printf("/n");
+		memcpy(buf,buff,md5Size);
+		size = md5Size;
+
+		return ERROR_SUCCESS;
 	}
 }

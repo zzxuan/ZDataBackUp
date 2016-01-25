@@ -25,4 +25,9 @@ HRESULT WINAPI ZDecryptFile(
 							__in size_t passwordlen
 							);
 
+HRESULT WINAPI ZGetFileInfo(__out PWIN32_FIND_DATAA pfileData,
+							__in PZEncryptFileReadFile PReadFile,
+							__in PVOID handleread
+							);
+
 #endif

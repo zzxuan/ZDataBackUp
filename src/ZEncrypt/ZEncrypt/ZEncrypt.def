@@ -3,3 +3,4 @@ LIBRARY	"ZEncrypt"
 EXPORTS
 	ZEncryptBuffer
 	ZDecryptBuffer
+	ZMD5_File

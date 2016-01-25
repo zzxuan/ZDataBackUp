@@ -3,12 +3,12 @@
 
 CEncryptNULL::CEncryptNULL(void)
 {
-	printf("CEncryptNULL\n");
+	//printf("CEncryptNULL\n");
 }
 
 CEncryptNULL::~CEncryptNULL(void)
 {
-	printf("~CEncryptNULL\n");
+	//printf("~CEncryptNULL\n");
 }
 
 HRESULT CEncryptNULL::EncryptBuffer( 
