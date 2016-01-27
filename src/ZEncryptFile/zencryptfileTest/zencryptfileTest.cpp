@@ -10,8 +10,9 @@
 #pragma comment(lib,"../Debug/ZEncryptFile.lib");
 #pragma comment(lib,"../../common/lib/minizlib.lib")
 
-size_t WINAPI WriteFile(PVOID buf,UINT bufsize,PVOID handle)
+size_t WINAPI WriteFile(PVOID buf,UINT bufsize,PVOID handle,DWORD totalsize,DWORD offset)
 {
+	printf("\% %%d\n",100*offset/totalsize);
 	return fwrite(buf,bufsize,1,(FILE *)handle);
 }
 

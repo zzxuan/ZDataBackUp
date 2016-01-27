@@ -71,6 +71,7 @@ HRESULT CEncryptFile::ZCEncryptFile(
 		{
 			break;
 		}
+		m_readsize += readlen;
 		result = WriteOneBulk((PVOID)readBuf,readlen);
 		if (ERROR_SUCCESS != result)
 		{
@@ -104,6 +105,8 @@ HRESULT CEncryptFile::WriteHeader()
 	{
 		return GetLastError();
 	}
+	m_filetotalsize = find_dataa.nFileSizeLow;
+	m_readsize = 0;
 
 	FindClose(handle);
 	memcpy(writeBuf+len,&find_dataa,sizeof(WIN32_FIND_DATAA));
@@ -136,9 +139,9 @@ HRESULT CEncryptFile::WriteHeader()
 	USHORT lenwrite = converlen(enlen);
 	USHORT uncomzisewrite = converlen(sizeof(writeBuf));//压缩加密前的长度
 
-	if(NULL !=  m_PWriteFile(&lenwrite,sizeof(USHORT),m_handlewrite)
-		&& NULL !=  m_PWriteFile(&uncomzisewrite,sizeof(USHORT),m_handlewrite)
-		&& NULL != m_PWriteFile(enwriteBuf,enlen,m_handlewrite))
+	if(NULL !=  m_PWriteFile(&lenwrite,sizeof(USHORT),m_handlewrite,m_filetotalsize,m_readsize)
+		&& NULL !=  m_PWriteFile(&uncomzisewrite,sizeof(USHORT),m_handlewrite,m_filetotalsize,m_readsize)
+		&& NULL != m_PWriteFile(enwriteBuf,enlen,m_handlewrite,m_filetotalsize,m_readsize))
 	{
 
 		return ERROR_SUCCESS;
@@ -169,9 +172,9 @@ HRESULT CEncryptFile::WriteOneBulk( PVOID data,size_t datasize )
 	USHORT lenwrite = converlen(enlen);
 	USHORT uncomzisewrite = converlen(datasize);//压缩加密前的长度
 
-	if(NULL !=  m_PWriteFile(&lenwrite,sizeof(USHORT),m_handlewrite)
-		&&NULL !=  m_PWriteFile(&uncomzisewrite,sizeof(USHORT),m_handlewrite)
-		&&NULL != m_PWriteFile(enwriteBuf,enlen,m_handlewrite))
+	if(NULL !=  m_PWriteFile(&lenwrite,sizeof(USHORT),m_handlewrite,m_filetotalsize,m_readsize)
+		&&NULL !=  m_PWriteFile(&uncomzisewrite,sizeof(USHORT),m_handlewrite,m_filetotalsize,m_readsize)
+		&&NULL != m_PWriteFile(enwriteBuf,enlen,m_handlewrite,m_filetotalsize,m_readsize))
 	{
 		result = ERROR_SUCCESS;
 	}

@@ -32,6 +32,9 @@ private:
 	PVOID m_extendData;
 	size_t m_extendLen;
 
+	DWORD m_filetotalsize;
+	DWORD m_readsize;
+
 	HRESULT WriteHeader();
 
 	HRESULT WriteOneBulk(PVOID data,size_t datasize);

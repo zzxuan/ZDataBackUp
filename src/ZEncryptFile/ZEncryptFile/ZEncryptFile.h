@@ -5,7 +5,7 @@
 
 
 typedef size_t (WINAPI * PZEncryptFileReadFile)(PVOID buf,UINT bufsize,PVOID handle);
-typedef size_t (WINAPI * PZEncryptFileWriteFile)(PVOID buf,UINT bufsize,PVOID handle);
+typedef size_t (WINAPI * PZEncryptFileWriteFile)(PVOID buf,UINT bufsize,PVOID handle,DWORD totallen,DWORD readoffset);
 
 HRESULT WINAPI ZEncryptFile(
 							__in LPSTR filePath,
