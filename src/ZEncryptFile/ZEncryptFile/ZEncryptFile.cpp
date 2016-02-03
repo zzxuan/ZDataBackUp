@@ -7,8 +7,8 @@
 #include "ZCEncryptFile.h"
 #include "ZCDecryptFile.h"
 
-CEncryptFile g_EncryptFile;
-CDecryptFile g_DecryptFile;
+
+
 
 HRESULT WINAPI ZEncryptFile(
 							__in LPSTR filePath,
@@ -21,7 +21,8 @@ HRESULT WINAPI ZEncryptFile(
 							__in size_t extendlen
 							)
 {
-	return g_EncryptFile.ZCEncryptFile(
+	CEncryptFile EncryptFile;
+	return EncryptFile.ZCEncryptFile(
 		filePath,PWriteFile,
 		handlewrite,encryptType,password,passwordlen
 		,extendData,extendlen);
@@ -36,13 +37,15 @@ HRESULT WINAPI ZDecryptFile(
 							__in size_t passwordlen
 							)
 {
-	return g_DecryptFile.ZCDecryptFile(filePath,PReadFile,handleread,password,passwordlen);
+	CDecryptFile DecryptFile;
+	return DecryptFile.ZCDecryptFile(filePath,PReadFile,handleread,password,passwordlen);
 }
 
 HRESULT WINAPI ZGetFileInfo(__out PWIN32_FIND_DATAA pfileData,
 							__in PZEncryptFileReadFile PReadFile,
 							__in PVOID handleread)
 {
+	CDecryptFile g_DecryptFile;
 	return g_DecryptFile.ZCGetFileInfo(pfileData,PReadFile,handleread);
 }
 
@@ -53,5 +56,6 @@ HRESULT WINAPI ZGetExternData(
 							   __in PVOID handleread
 							   )
 {
-	return g_DecryptFile.ZCGetExternData(pextendData,pextendLen,PReadFile,handleread);
+	CDecryptFile DecryptFile;
+	return DecryptFile.ZCGetExternData(pextendData,pextendLen,PReadFile,handleread);
 }

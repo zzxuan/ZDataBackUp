@@ -46,6 +46,9 @@ HRESULT CEncryptFile::ZCEncryptFile(
 	m_extendData = extendData;
 	m_extendLen = extendlen;
 
+	m_filetotalsize = 0;
+	m_readsize = 0;
+
 	HRESULT result = ERROR_SUCCESS;
 	FILE *pFile = fopen(m_filePath,"rb");
 	if (NULL == pFile)

@@ -1,15 +1,16 @@
 1>------ 已启动全部重新生成: 项目: ZEncryptTest, 配置: Release Win32 ------
 2>------ 已启动全部重新生成: 项目: ZEncrypt, 配置: Release Win32 ------
-2>正在删除项目“ZEncrypt”(配置“Release|Win32”)的中间文件和输出文件
 1>正在删除项目“ZEncryptTest”(配置“Release|Win32”)的中间文件和输出文件
+2>正在删除项目“ZEncrypt”(配置“Release|Win32”)的中间文件和输出文件
 2>正在编译...
 1>正在编译...
 2>stdafx.cpp
 1>stdafx.cpp
 1>正在编译...
-2>正在编译...
 1>ZEncryptTest.cpp
+2>正在编译...
 2>ZEncrypt.cpp
+1>正在链接...
 2>EncryptXOR.cpp
 2>EncryptRC4.cpp
 2>EncryptNULL.cpp
@@ -23,16 +24,15 @@
 2>.\EncryptMD5.cpp(240) : warning C4101: “i”: 未引用的局部变量
 2>EncryptBase.cpp
 2>正在编译...
-1>正在链接...
-2>dllmain.cpp
 1>正在生成代码
 1>已完成代码的生成
 1>正在嵌入清单...
+2>dllmain.cpp
 2>正在链接...
-2>   正在创建库 E:\WORK\git\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.lib 和对象 E:\WORK\git\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.exp
-2>正在生成代码
 1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\src\ZEncrypt\ZEncryptTest\Release\BuildLog.htm”
 1>ZEncryptTest - 0 个错误，0 个警告
+2>   正在创建库 E:\WORK\git\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.lib 和对象 E:\WORK\git\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.exp
+2>正在生成代码
 2>e:\work\git\zdatabackup\src\zencrypt\zencrypt\encryptmd5.cpp(38) : warning C4715: “CEncryptMD5::EncryptBuffer”: 不是所有的控件路径都返回值
 2>已完成代码的生成
 2>正在嵌入清单...
@@ -163,7 +163,7 @@
 1>zencryptfileTest.cpp
 2>ZEncryptFile.cpp
 2>ZCEncryptFile.cpp
-2>.\ZCEncryptFile.cpp(45) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>.\ZCEncryptFile.cpp(50) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
 2>ZCDecryptFile.cpp
 2>.\ZCDecryptFile.cpp(51) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -172,11 +172,14 @@
 2>正在编译...
 2>dllmain.cpp
 1>.\zencryptfileTest.cpp(10) : warning C4081: 应输入“newline”；找到“;”
-1>.\zencryptfileTest.cpp(26) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>.\zencryptfileTest.cpp(15) : warning C4129: “%”: 不可识别的字符转义序列
+1>.\zencryptfileTest.cpp(27) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
-1>.\zencryptfileTest.cpp(37) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>.\zencryptfileTest.cpp(41) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
-1>.\zencryptfileTest.cpp(45) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>.\zencryptfileTest.cpp(49) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\zencryptfileTest.cpp(57) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
 1>正在链接...
 1>正在生成代码
@@ -186,7 +189,7 @@
 2>   正在创建库 E:\WORK\git\ZDataBackUp\src\ZEncryptFile\Release\ZEncryptFile.lib 和对象 E:\WORK\git\ZDataBackUp\src\ZEncryptFile\Release\ZEncryptFile.exp
 2>正在生成代码
 1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\src\ZEncryptFile\zencryptfileTest\Release\BuildLog.htm”
-1>zencryptfileTest - 0 个错误，4 个警告
+1>zencryptfileTest - 0 个错误，6 个警告
 2>已完成代码的生成
 2>正在嵌入清单...
 2>正在执行生成后事件...
