@@ -4,6 +4,7 @@
 #include "../../common/include/ZEncrypt.h"
 
 #include "ZConvertToFile.h"
+#include "ZConvertToZip.h"
 
 CZConvertCmd::CZConvertCmd(void)
 {
@@ -38,6 +39,14 @@ HRESULT CZConvertCmd::TransferCmdLine()
 		optionType = CONVERT_OPTIONCODE_ENCRPT_TOFILE;
 	}
 	else if  (0==_tcscmp(szArglist[1],CONVERT_CMD_OPTION_DECRPT_FROMFILE))
+	{
+		optionType = CONVERT_OPTIONCODE_DECRPT_FROMFILE;
+	}
+	else if  (0==_tcscmp(szArglist[1],CONVERT_CMD_OPTION_ENCRPT_TOZIP))
+	{
+		optionType = CONVERT_OPTIONCODE_DECRPT_FROMFILE;
+	}
+	else if  (0==_tcscmp(szArglist[1],CONVERT_CMD_OPTION_DECRPT_FROMZIP))
 	{
 		optionType = CONVERT_OPTIONCODE_DECRPT_FROMFILE;
 	}
@@ -78,26 +87,30 @@ HRESULT CZConvertCmd::ConvertFileBase( __in LPCTSTR dstPath, __in LPCTSTR srcPat
 	{
 	case CONVERT_OPTIONCODE_ENCRPT_TOFILE:
 		{
-			return EncryptFileToFile(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,reserve);
+			CZConvertToFile ctofile;
+			return ctofile.EncryptFileToFile(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,reserve);
 		}
 		break;
 	case CONVERT_OPTIONCODE_DECRPT_FROMFILE:
 		{
-			return DecryptFileFromFile(dstPath,srcPath,showProcDialog,passWord,passWorfLen,reserve);
+			CZConvertToFile ctofile;
+			return ctofile.DecryptFileFromFile(dstPath,srcPath,showProcDialog,passWord,passWorfLen,reserve);
+		}
+		break;
+	case CONVERT_OPTIONCODE_ENCRPT_TOZIP:
+		{
+			CZConvertToZip ctozip;
+			return ctozip.EncryptFileToZip(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,reserve);
+		}
+		break;
+	case CONVERT_OPTIONCODE_DECRPT_FROMZIP:
+		{
+			CZConvertToZip ctozip;
+			return ctozip.DecryptFileFromFile(dstPath,srcPath,showProcDialog,passWord,passWorfLen,reserve);
 		}
 		break;
 	}
 	return ERROR_SUCCESS;
 }
 
-HRESULT CZConvertCmd::EncryptFileToFile( __in LPCTSTR dstPath, __in LPCTSTR srcPath, __in ULONG encyptType, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID reserve )
-{
-	CZConvertToFile ctofile;
-	return ctofile.EncryptFileToFile(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,reserve);
-}
 
-HRESULT CZConvertCmd::DecryptFileFromFile( __in LPCTSTR dstPath, __in LPCTSTR srcPath, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID reserve )
-{
-	CZConvertToFile ctofile;
-	return ctofile.DecryptFileFromFile(dstPath,srcPath,showProcDialog,passWord,passWorfLen,reserve);
-}
