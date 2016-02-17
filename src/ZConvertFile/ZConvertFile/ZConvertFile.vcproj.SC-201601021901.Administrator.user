@@ -11,7 +11,7 @@
 			<DebugSettings
 				Command="$(TargetPath)"
 				WorkingDirectory=""
-				CommandArguments="enc f:\dst.zenc f:\ewqr.txt 123"
+				CommandArguments="-dec e:\aaa.txt e:\config.txt 123 1"
 				Attach="false"
 				DebuggerType="3"
 				Remote="1"

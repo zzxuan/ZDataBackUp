@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZConvertFile", "ZConvertFile\ZConvertFile.vcproj", "{6DEC54CE-73D6-4EDA-8235-3BFBF013502E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcproj", "{9C5EABDA-1122-47BC-ADD4-A4FF729EEAB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{6DEC54CE-73D6-4EDA-8235-3BFBF013502E}.Debug|Win32.Build.0 = Debug|Win32
 		{6DEC54CE-73D6-4EDA-8235-3BFBF013502E}.Release|Win32.ActiveCfg = Release|Win32
 		{6DEC54CE-73D6-4EDA-8235-3BFBF013502E}.Release|Win32.Build.0 = Release|Win32
+		{9C5EABDA-1122-47BC-ADD4-A4FF729EEAB1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9C5EABDA-1122-47BC-ADD4-A4FF729EEAB1}.Debug|Win32.Build.0 = Debug|Win32
+		{9C5EABDA-1122-47BC-ADD4-A4FF729EEAB1}.Release|Win32.ActiveCfg = Release|Win32
+		{9C5EABDA-1122-47BC-ADD4-A4FF729EEAB1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

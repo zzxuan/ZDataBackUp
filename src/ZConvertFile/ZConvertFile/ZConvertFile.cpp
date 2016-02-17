@@ -5,7 +5,9 @@
 #include "ZConvertFile.h"
 #include "ZConvertFileDlg.h"
 #include "ZConvertCmd.h"
+#include "../../common/include/zip.h"
 
+#pragma comment(lib,"../../common/lib/minizlib.lib")
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

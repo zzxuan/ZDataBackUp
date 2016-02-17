@@ -34,16 +34,6 @@ HRESULT CZConvertToFile::EncryptFileToFile(
 	__in PVOID reserve 
 	)
 {
-	m_pDstFile = _wfopen(dstPath,L"wb");
-	if (NULL == m_pDstFile)
-	{
-		if (showProcDialog)
-		{
-			ShowLastErrMsg();
-		}
-		
-		return GetLastError();
-	}
 	
 	CHAR szAnsi[MAX_PATH] = {NULL};
 	if (0 == WideCharToMultiByte(CP_ACP, NULL, srcPath, wcslen(srcPath), szAnsi, sizeof(szAnsi), NULL, NULL))
@@ -54,9 +44,22 @@ HRESULT CZConvertToFile::EncryptFileToFile(
 		}
 		return GetLastError();
 	}
-	
+	m_pDstFile = _wfopen(dstPath,L"wb");
+	if (NULL == m_pDstFile)
+	{
+		if (showProcDialog)
+		{
+			ShowLastErrMsg();
+		}
+
+		return GetLastError();
+	}
+
 
 	HRESULT ulResult = ZEncryptFile(szAnsi,(PZEncryptFileWriteFile)global_ZConvertFile_WriteFile,this,encyptType,passWord,passWorfLen);
+	fclose(m_pDstFile);
+	m_pDstFile = NULL;
+
 	if(ERROR_SUCCESS != ulResult)
 	{
 		if (showProcDialog)
@@ -78,6 +81,17 @@ HRESULT  CZConvertToFile::DecryptFileFromFile(
 							__in PVOID reserve
 							)
 {
+	
+	CHAR szAnsi[MAX_PATH] = {NULL};
+	if (0 == WideCharToMultiByte(CP_ACP, NULL, dstPath, wcslen(dstPath), szAnsi, sizeof(szAnsi), NULL, NULL))
+	{
+		if (showProcDialog)
+		{
+			ShowLastErrMsg();
+		}
+		return GetLastError();
+	}
+
 	m_pSrcFile = _wfopen(srcPath,L"rb");
 	if (NULL == m_pSrcFile)
 	{
@@ -89,16 +103,10 @@ HRESULT  CZConvertToFile::DecryptFileFromFile(
 		return GetLastError();
 	}
 
-	CHAR szAnsi[MAX_PATH] = {NULL};
-	if (0 == WideCharToMultiByte(CP_ACP, NULL, dstPath, wcslen(dstPath), szAnsi, sizeof(szAnsi), NULL, NULL))
-	{
-		if (showProcDialog)
-		{
-			ShowLastErrMsg();
-		}
-		return GetLastError();
-	}
 	HRESULT ulResult = ZDecryptFile(szAnsi,(PZEncryptFileReadFile)global_ZConvertFile_FileReadFile,this,passWord,passWorfLen);
+	fclose(m_pSrcFile);
+	m_pSrcFile = NULL;
+
 	if(ERROR_SUCCESS != ulResult)
 	{
 		if (showProcDialog)

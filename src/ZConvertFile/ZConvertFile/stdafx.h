@@ -36,6 +36,8 @@
 
 
 
+#include "../../common/include/ConverHelper.h"
+#include "../../common/include/CommonDefine.h"
 
 
 
@@ -54,8 +56,6 @@
 #endif
 
 
-#include "../../common/include/ConverHelper.h"
-#include "../../common/include/CommonDefine.h"
 
 #endif
 

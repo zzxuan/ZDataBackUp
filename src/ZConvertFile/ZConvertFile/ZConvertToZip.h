@@ -24,4 +24,12 @@ public:
 		__in ULONG passWorfLen,
 		__in PVOID reserve
 		);
+
+	size_t ZConvertReadFile(PVOID buf,UINT bufsize);
+
+	size_t ZConvertWriteFilesize_t(PVOID buf,UINT bufsize,DWORD totallen,DWORD readoffset);
+
+private:
+	PVOID m_zipFileRead;
+	PVOID m_zipFileWrite;
 };

@@ -6,6 +6,7 @@
 #include "ZConvertToFile.h"
 #include "ZConvertToZip.h"
 
+
 CZConvertCmd::CZConvertCmd(void)
 {
 }
@@ -44,11 +45,11 @@ HRESULT CZConvertCmd::TransferCmdLine()
 	}
 	else if  (0==_tcscmp(szArglist[1],CONVERT_CMD_OPTION_ENCRPT_TOZIP))
 	{
-		optionType = CONVERT_OPTIONCODE_DECRPT_FROMFILE;
+		optionType = CONVERT_OPTIONCODE_ENCRPT_TOZIP;
 	}
 	else if  (0==_tcscmp(szArglist[1],CONVERT_CMD_OPTION_DECRPT_FROMZIP))
 	{
-		optionType = CONVERT_OPTIONCODE_DECRPT_FROMFILE;
+		optionType = CONVERT_OPTIONCODE_DECRPT_FROMZIP;
 	}
 
 	_tcscpy_s(dstPath,_countof(dstPath),szArglist[2]);
