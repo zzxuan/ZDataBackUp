@@ -11,7 +11,7 @@
 			<DebugSettings
 				Command="$(TargetPath)"
 				WorkingDirectory=""
-				CommandArguments="-dec e:\aaa.txt e:\config.txt 123 1"
+				CommandArguments="-dzip e:\asd.txt e:\aaa.zip&amp;abc.txt 123 1"
 				Attach="false"
 				DebuggerType="3"
 				Remote="1"

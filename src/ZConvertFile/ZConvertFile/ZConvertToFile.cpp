@@ -138,3 +138,33 @@ size_t CZConvertToFile::ZConvertWriteFilesize_t( PVOID buf,UINT bufsize,DWORD to
 	}
 	return 0;
 }
+
+HRESULT CZConvertToFile::GetFileInfoInFile( __out PWIN32_FIND_DATAA pfileData, __in LPCTSTR srcPath )
+{
+	m_pSrcFile = _wfopen(srcPath,L"rb");
+	if (NULL == m_pSrcFile)
+	{
+		return GetLastError();
+	}
+
+	HRESULT ulResult = ZGetFileInfo(pfileData,(PZEncryptFileReadFile)global_ZConvertFile_FileReadFile,this);
+	fclose(m_pSrcFile);
+	m_pSrcFile = NULL;
+
+	return ulResult;
+}
+
+HRESULT CZConvertToFile::GetExternDataInFile( __out PVOID pextendData, __inout size_t *pextendLen, __in LPCTSTR srcPath )
+{
+	m_pSrcFile = _wfopen(srcPath,L"rb");
+	if (NULL == m_pSrcFile)
+	{
+		return GetLastError();
+	}
+
+	HRESULT ulResult = ZGetExternData(pextendData,pextendLen,(PZEncryptFileReadFile)global_ZConvertFile_FileReadFile,this);
+	fclose(m_pSrcFile);
+	m_pSrcFile = NULL;
+
+	return ulResult;
+}

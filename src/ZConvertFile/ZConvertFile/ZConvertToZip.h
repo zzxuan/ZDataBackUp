@@ -25,6 +25,20 @@ public:
 		__in PVOID reserve
 		);
 
+	HRESULT GetFileInfoInZip(
+		__out PWIN32_FIND_DATAA pfileData,
+		__in LPCTSTR srcPath
+		);
+
+	HRESULT GetExternDataInZip(
+		__out PVOID pextendData,
+		__inout size_t *pextendLen,
+		__in LPCTSTR srcPath
+		);
+
+	HRESULT zipOpenFileRead(CHAR* szAnsi,CHAR *dstAnsi);
+	VOID zipCloseFileRead();
+
 	size_t ZConvertReadFile(PVOID buf,UINT bufsize);
 
 	size_t ZConvertWriteFilesize_t(PVOID buf,UINT bufsize,DWORD totallen,DWORD readoffset);
