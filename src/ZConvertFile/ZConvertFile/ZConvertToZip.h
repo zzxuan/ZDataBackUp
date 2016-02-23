@@ -13,6 +13,8 @@ public:
 		__in BOOL showProcDialog,
 		__in PVOID passWord,
 		__in ULONG passWorfLen,
+		__in PVOID extendData,
+		__in size_t extendlen ,
 		__in PVOID reserve
 		);
 
@@ -33,6 +35,14 @@ public:
 	HRESULT GetExternDataInZip(
 		__out PVOID pextendData,
 		__inout size_t *pextendLen,
+		__in LPCTSTR srcPath
+		);
+
+	//获得zip的文件列表 出参为字符串以\0隔开
+	HRESULT GetFileListInZip(
+		__out PCHAR NameBuf,
+		__out ULONG& countList,
+		__in size_t NameBufSize,
 		__in LPCTSTR srcPath
 		);
 

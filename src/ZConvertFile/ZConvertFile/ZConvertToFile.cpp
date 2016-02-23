@@ -31,6 +31,8 @@ HRESULT CZConvertToFile::EncryptFileToFile(
 	__in BOOL showProcDialog, 
 	__in PVOID passWord, 
 	__in ULONG passWorfLen, 
+	__in PVOID extendData,
+	__in size_t extendlen ,
 	__in PVOID reserve 
 	)
 {
@@ -56,7 +58,8 @@ HRESULT CZConvertToFile::EncryptFileToFile(
 	}
 
 
-	HRESULT ulResult = ZEncryptFile(szAnsi,(PZEncryptFileWriteFile)global_ZConvertFile_WriteFile,this,encyptType,passWord,passWorfLen);
+	HRESULT ulResult = ZEncryptFile(szAnsi,(PZEncryptFileWriteFile)global_ZConvertFile_WriteFile,
+		this,encyptType,passWord,passWorfLen,extendData,extendlen);
 	fclose(m_pDstFile);
 	m_pDstFile = NULL;
 

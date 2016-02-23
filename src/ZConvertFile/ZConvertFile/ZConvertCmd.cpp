@@ -89,7 +89,7 @@ HRESULT CZConvertCmd::ConvertFileBase( __in LPCTSTR dstPath, __in LPCTSTR srcPat
 	case CONVERT_OPTIONCODE_ENCRPT_TOFILE:
 		{
 			CZConvertToFile ctofile;
-			return ctofile.EncryptFileToFile(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,reserve);
+			return ctofile.EncryptFileToFile(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,NULL,0,reserve);
 		}
 		break;
 	case CONVERT_OPTIONCODE_DECRPT_FROMFILE:
@@ -101,7 +101,7 @@ HRESULT CZConvertCmd::ConvertFileBase( __in LPCTSTR dstPath, __in LPCTSTR srcPat
 	case CONVERT_OPTIONCODE_ENCRPT_TOZIP:
 		{
 			CZConvertToZip ctozip;
-			return ctozip.EncryptFileToZip(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,reserve);
+			return ctozip.EncryptFileToZip(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,NULL,0,reserve);
 		}
 		break;
 	case CONVERT_OPTIONCODE_DECRPT_FROMZIP:

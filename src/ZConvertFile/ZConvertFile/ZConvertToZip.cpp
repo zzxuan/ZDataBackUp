@@ -40,6 +40,8 @@ HRESULT CZConvertToZip::EncryptFileToZip(
 	__in BOOL showProcDialog, 
 	__in PVOID passWord, 
 	__in ULONG passWorfLen, 
+	__in PVOID extendData,
+	__in size_t extendlen ,
 	__in PVOID reserve 
 	)
 {
@@ -93,7 +95,8 @@ HRESULT CZConvertToZip::EncryptFileToZip(
 		NULL,NULL,NULL,NULL,NULL,NULL,Z_BEST_SPEED
 		);
 
-	HRESULT ulResult = ZEncryptFile(szAnsi,(PZEncryptFileWriteFile)global_ZConvertZip_WriteFile,this,encyptType,passWord,passWorfLen);
+	HRESULT ulResult = ZEncryptFile(szAnsi,(PZEncryptFileWriteFile)global_ZConvertZip_WriteFile,
+		this,encyptType,passWord,passWorfLen,extendData,extendlen);
 	zipCloseFileInZip(m_zipFileWrite);
 	zipClose(m_zipFileWrite,NULL);
 	m_zipFileWrite = NULL;
@@ -228,7 +231,7 @@ HRESULT CZConvertToZip::GetFileInfoInZip( __out PWIN32_FIND_DATAA pfileData, __i
 	{
 		return zipRes;
 	}
-	
+
 	HRESULT ulResault = ZGetFileInfo(pfileData,(PZEncryptFileReadFile)global_ZConvertZip_ReadFile,this);
 	zipCloseFileRead();
 	return ulResault;
@@ -252,4 +255,114 @@ HRESULT CZConvertToZip::GetExternDataInZip( __out PVOID pextendData, __inout siz
 	HRESULT ulResault = ZGetExternData(pextendData,pextendLen,(PZEncryptFileReadFile)global_ZConvertZip_ReadFile,this);
 	zipCloseFileRead();
 	return ulResault;
+}
+
+HRESULT CZConvertToZip::GetFileListInZip(
+	__out PCHAR NameBuf, 
+	__out ULONG& countList, 
+	__in size_t NameBufSize, 
+	__in LPCTSTR srcPath 
+	)
+{
+	CHAR name[MAX_PATH] = {NULL};
+
+	PCHAR pstr = NameBuf;
+	ULONG nindex = 0;
+	memset(NameBuf,0,NameBufSize);
+	countList = 0;
+
+	CHAR szAnsi[MAX_PATH] = {NULL};
+
+	if (0 == WideCharToMultiByte(CP_ACP, NULL, srcPath, wcslen(srcPath), szAnsi, sizeof(szAnsi), NULL, NULL))
+	{
+		return GetLastError();
+	}
+
+	PVOID zipfile = unzOpen(szAnsi);
+	if (NULL == zipfile)
+	{
+		return ERROR_FILE_NOT_FOUND;
+	}
+
+	HRESULT nResult = ERROR_SUCCESS;
+
+	do 
+	{
+		if (UNZ_OK != unzGoToFirstFile(zipfile))
+		{
+			nResult = ERROR_FILE_NOT_FOUND;
+			break;
+		}
+
+		if (UNZ_OK !=unzGetCurrentFileInfo(
+			zipfile,
+			NULL,
+			name,
+			sizeof(name),
+			NULL,0,
+			NULL,0
+			))
+		{
+			nResult = ERROR_FILE_INVALID;
+			break;
+		}
+		//---copy name--------
+		if (NameBufSize - nindex < strlen(name))
+		{
+			nResult = ERROR_MORE_DATA;
+			break;
+		}
+		strncpy(pstr,name,NameBufSize - nindex);
+		ULONG len = strlen(pstr);
+		nindex += len + 1;
+		pstr += len + 1;
+		countList++;
+
+		while(TRUE)
+		{
+			memset(name,0,sizeof(name));
+			int nstate = unzGoToNextFile(zipfile);
+			if (UNZ_OK != nstate)
+			{
+				if (UNZ_END_OF_LIST_OF_FILE == nstate)
+				{
+					nResult = ERROR_SUCCESS;
+				}
+				else
+				{
+					nResult = ERROR_FILE_NOT_FOUND;
+				}
+				break;
+			}
+
+			if (UNZ_OK !=unzGetCurrentFileInfo(
+				zipfile,
+				NULL,
+				name,
+				sizeof(name),
+				NULL,0,
+				NULL,0
+				))
+			{
+				nResult = ERROR_FILE_INVALID;
+				break;
+			}
+			//---copy name--------
+			if (NameBufSize - nindex < strlen(name))
+			{
+				nResult = ERROR_MORE_DATA;
+				break;
+			}
+			strncpy(pstr,name,NameBufSize - nindex);
+			ULONG len = strlen(pstr);
+			nindex += len + 1;
+			pstr += len + 1;
+			countList++;
+
+		}
+	} while (FALSE);
+
+	unzClose(zipfile);
+	zipfile = NULL;
+	return ERROR_SUCCESS;
 }
