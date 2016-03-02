@@ -1,0 +1,4 @@
+LIBRARY	"ZShareMem"
+
+EXPORTS
+	CreateZShareMem

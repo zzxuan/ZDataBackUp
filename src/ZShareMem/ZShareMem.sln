@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZShareMem", "ZShareMem\ZShareMem.vcproj", "{BF88F416-F3F9-4332-8448-8B094B6D0902}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "memTest1", "memTest1\memTest1.vcproj", "{89FB89BB-154E-41BA-A4CC-7066C2A5B99F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BF88F416-F3F9-4332-8448-8B094B6D0902} = {BF88F416-F3F9-4332-8448-8B094B6D0902}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "memTest2", "memTest2\memTest2.vcproj", "{9A358D2E-6C37-4849-8323-368F192D2732}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BF88F416-F3F9-4332-8448-8B094B6D0902} = {BF88F416-F3F9-4332-8448-8B094B6D0902}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF88F416-F3F9-4332-8448-8B094B6D0902}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BF88F416-F3F9-4332-8448-8B094B6D0902}.Debug|Win32.Build.0 = Debug|Win32
+		{BF88F416-F3F9-4332-8448-8B094B6D0902}.Release|Win32.ActiveCfg = Release|Win32
+		{BF88F416-F3F9-4332-8448-8B094B6D0902}.Release|Win32.Build.0 = Release|Win32
+		{89FB89BB-154E-41BA-A4CC-7066C2A5B99F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{89FB89BB-154E-41BA-A4CC-7066C2A5B99F}.Debug|Win32.Build.0 = Debug|Win32
+		{89FB89BB-154E-41BA-A4CC-7066C2A5B99F}.Release|Win32.ActiveCfg = Release|Win32
+		{89FB89BB-154E-41BA-A4CC-7066C2A5B99F}.Release|Win32.Build.0 = Release|Win32
+		{9A358D2E-6C37-4849-8323-368F192D2732}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9A358D2E-6C37-4849-8323-368F192D2732}.Debug|Win32.Build.0 = Debug|Win32
+		{9A358D2E-6C37-4849-8323-368F192D2732}.Release|Win32.ActiveCfg = Release|Win32
+		{9A358D2E-6C37-4849-8323-368F192D2732}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
