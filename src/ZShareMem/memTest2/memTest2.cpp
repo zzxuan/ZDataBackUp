@@ -18,7 +18,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		UINT msgType = i;
 		CHAR buf[MAX_PATH] = "hello";
 		UINT bufsize = MAX_PATH;
-		shareMem->WriteMsg(msgType,buf,bufsize);
+		shareMem->WriteMsgByOpener(msgType,buf,bufsize);
 
 		printf("%s\n",buf);
 		Sleep(1000);

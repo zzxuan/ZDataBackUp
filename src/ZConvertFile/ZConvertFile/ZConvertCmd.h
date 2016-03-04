@@ -16,8 +16,11 @@ public:
 		__in BOOL showProcDialog,
 		__in PVOID passWord,
 		__in ULONG passWorfLen,
+		__in PVOID pextdata,
+		__in ULONG extlen,
 		__in PVOID reserve
 		);
 
+	HRESULT TransferByMem(LPTSTR memName);
 	
 };

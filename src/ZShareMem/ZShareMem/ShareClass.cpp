@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "ShareClass.h"
 
-#define BUF_SIZE 1024
+
 
 #define EVENTTAIL _T("_EVENT")
 #define MUTEXTAIL _T("_MUXT")
@@ -30,7 +30,7 @@ CShareClass::~CShareClass(void)
 	}
 }
 
-HRESULT WINAPI CShareClass::InitShareMemCreater(LPWSTR memServerName)
+HRESULT WINAPI CShareClass::InitShareMemCreator(LPWSTR memServerName)
 {
 	if (NULL != memServerName)
 	{
@@ -64,7 +64,7 @@ HRESULT WINAPI CShareClass::InitShareMemCreater(LPWSTR memServerName)
 			NULL,                    // default security 
 			PAGE_READWRITE,          // read/write access
 			0,                       // max. object size 
-			BUF_SIZE,                // buffer size  
+			MEM_BUF_SIZE,                // buffer size  
 			szName);                 // name of mapping object
 
 		if (NULL == m_serverData.shareFileMap)
@@ -111,68 +111,44 @@ HRESULT WINAPI CShareClass::InitShareMemOpener(LPWSTR memClientName)
 }
 
 
-HRESULT WINAPI CShareClass::WriteMsg(__in UINT msgType,__in PVOID msgBuffer,__in UINT bufSize)
+HRESULT WINAPI CShareClass::WriteMsgByOpener(__in UINT msgType,__in PVOID msgBuffer,__in UINT bufSize)
 {
-	if (NULL == m_clientData.shareEvent)
-	{
-		return ERROR_FILE_NOT_FOUND;
-	}
-	if (sizeof(UINT) + sizeof(UINT) + bufSize > BUF_SIZE)
-	{
-		return ERROR_BUFFER_OVERFLOW;
-	}
-
-	HRESULT state = ERROR_SUCCESS;
-	PUCHAR pBuf;
-
-	WaitForSingleObject(m_clientData.shareMutx,INFINITE);
-	do 
-	{
-		pBuf = (PUCHAR) MapViewOfFile(m_clientData.shareFileMap,   // handle to map object
-			FILE_MAP_ALL_ACCESS, // read/write permission
-			0,                   
-			0,                   
-			BUF_SIZE);           
-
-		if (pBuf == NULL) 
-		{ 
-			state = GetLastError();
-			break;
-		}
-		PUCHAR pubuf = pBuf;
-
-		memcpy(pubuf,&msgType,sizeof(UINT));
-		pubuf += sizeof(UINT);
-		memcpy(pubuf,&bufSize,sizeof(UINT));
-		pubuf += sizeof(UINT);
-		memcpy(pubuf,msgBuffer,bufSize);
-
-		UnmapViewOfFile(pBuf);
-		SetEvent(m_clientData.shareEvent);
-	} while (FALSE);
-	ReleaseMutex(m_clientData.shareMutx);
-
-	return state;
+	return writeMsg(m_clientData,msgType,msgBuffer,bufSize);
 }
 
-HRESULT WINAPI CShareClass::ReadMsg(__out UINT &msgType,__out PVOID msgBuffer,__inout UINT &bufSize)
+HRESULT WINAPI CShareClass::ReadMsgByCreator(__out UINT &msgType,__out PVOID msgBuffer,__inout UINT &bufSize)
 {
-	if (NULL == m_serverData.shareEvent)
+	return readMsg(m_serverData,msgType,msgBuffer,bufSize);
+}
+
+HRESULT WINAPI CShareClass::WriteMsgByCreator(__in UINT msgType,__in PVOID msgBuffer,__in UINT bufSize)
+{
+	return writeMsg(m_serverData,msgType,msgBuffer,bufSize);
+}
+
+HRESULT WINAPI CShareClass::ReadMsgByOpener(__out UINT &msgType,__out PVOID msgBuffer,__inout UINT &bufSize)
+{
+	return readMsg(m_clientData,msgType,msgBuffer,bufSize);
+}
+
+HRESULT CShareClass::readMsg(ShareData &sharedata,__out UINT &msgType,__out PVOID msgBuffer,__inout UINT &bufSize)
+{
+	if (NULL == sharedata.shareEvent)
 	{
 		return ERROR_FILE_NOT_FOUND;
 	}
-	WaitForSingleObject(m_serverData.shareEvent,INFINITE);
+	WaitForSingleObject(sharedata.shareEvent,INFINITE);
 	HRESULT state = ERROR_SUCCESS;
 	PUCHAR pBuf;
 
-	WaitForSingleObject(m_serverData.shareMutx,INFINITE);
+	WaitForSingleObject(sharedata.shareMutx,INFINITE);
 	do 
 	{
-		pBuf = (PUCHAR) MapViewOfFile(m_serverData.shareFileMap,   // handle to map object
+		pBuf = (PUCHAR) MapViewOfFile(sharedata.shareFileMap,   // handle to map object
 			FILE_MAP_ALL_ACCESS, // read/write permission
 			0,                   
 			0,                   
-			BUF_SIZE);           
+			MEM_BUF_SIZE);           
 
 		if (pBuf == NULL) 
 		{ 
@@ -199,7 +175,51 @@ HRESULT WINAPI CShareClass::ReadMsg(__out UINT &msgType,__out PVOID msgBuffer,__
 		UnmapViewOfFile(pBuf);
 	} while (FALSE);
 
-	ReleaseMutex(m_serverData.shareMutx);
+	ReleaseMutex(sharedata.shareMutx);
+	return state;
+}
+
+HRESULT CShareClass::writeMsg(ShareData &sharedata,__in UINT msgType,__in PVOID msgBuffer,__in UINT bufSize)
+{
+	if (NULL == sharedata.shareEvent)
+	{
+		return ERROR_FILE_NOT_FOUND;
+	}
+	if (sizeof(UINT) + sizeof(UINT) + bufSize > MEM_BUF_SIZE)
+	{
+		return ERROR_BUFFER_OVERFLOW;
+	}
+
+	HRESULT state = ERROR_SUCCESS;
+	PUCHAR pBuf;
+
+	WaitForSingleObject(sharedata.shareMutx,INFINITE);
+	do 
+	{
+		pBuf = (PUCHAR) MapViewOfFile(sharedata.shareFileMap,   // handle to map object
+			FILE_MAP_ALL_ACCESS, // read/write permission
+			0,                   
+			0,                   
+			MEM_BUF_SIZE);           
+
+		if (pBuf == NULL) 
+		{ 
+			state = GetLastError();
+			break;
+		}
+		PUCHAR pubuf = pBuf;
+
+		memcpy(pubuf,&msgType,sizeof(UINT));
+		pubuf += sizeof(UINT);
+		memcpy(pubuf,&bufSize,sizeof(UINT));
+		pubuf += sizeof(UINT);
+		memcpy(pubuf,msgBuffer,bufSize);
+
+		UnmapViewOfFile(pBuf);
+		SetEvent(sharedata.shareEvent);
+	} while (FALSE);
+	ReleaseMutex(sharedata.shareMutx);
+
 	return state;
 }
 

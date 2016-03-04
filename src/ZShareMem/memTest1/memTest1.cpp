@@ -12,13 +12,13 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	shareMem = CreateZShareMem();
 
-	shareMem->InitShareMemCreater(L"memtest");
+	shareMem->InitShareMemCreator(L"memtest");
 	for (int i=0;i<5;i++)
 	{
 		UINT msgType;
 		CHAR buf[MAX_PATH] = {NULL};
 		UINT bufsize = MAX_PATH;
-		shareMem->ReadMsg(msgType,buf,bufsize);
+		shareMem->ReadMsgByCreator(msgType,buf,bufsize);
 
 		printf("%s\n",buf);
 	}
