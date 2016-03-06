@@ -1,48 +1,48 @@
-1>------ 已启动全部重新生成: 项目: ZEncryptTest, 配置: Release Win32 ------
-2>------ 已启动全部重新生成: 项目: ZEncrypt, 配置: Release Win32 ------
-1>正在删除项目“ZEncryptTest”(配置“Release|Win32”)的中间文件和输出文件
-2>正在删除项目“ZEncrypt”(配置“Release|Win32”)的中间文件和输出文件
-2>正在编译...
+1>------ 已启动全部重新生成: 项目: ZEncrypt, 配置: Release Win32 ------
+2>------ 已启动全部重新生成: 项目: ZEncryptTest, 配置: Release Win32 ------
+1>正在删除项目“ZEncrypt”(配置“Release|Win32”)的中间文件和输出文件
+2>正在删除项目“ZEncryptTest”(配置“Release|Win32”)的中间文件和输出文件
 1>正在编译...
-2>stdafx.cpp
 1>stdafx.cpp
+2>正在编译...
+2>stdafx.cpp
+2>正在编译...
+2>ZEncryptTest.cpp
 1>正在编译...
-1>ZEncryptTest.cpp
-2>正在编译...
-2>ZEncrypt.cpp
-1>正在链接...
-2>EncryptXOR.cpp
-2>EncryptRC4.cpp
-2>EncryptNULL.cpp
-2>EncryptMD5.cpp
-1>正在生成代码
-1>已完成代码的生成
-2>.\EncryptMD5.cpp(57) : warning C4018: “<”: 有符号/无符号不匹配
-2>.\EncryptMD5.cpp(70) : warning C4018: “<”: 有符号/无符号不匹配
-2>.\EncryptMD5.cpp(187) : warning C4018: “>=”: 有符号/无符号不匹配
-2>.\EncryptMD5.cpp(192) : warning C4018: “<”: 有符号/无符号不匹配
-2>.\EncryptMD5.cpp(243) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
-2>.\EncryptMD5.cpp(240) : warning C4101: “i”: 未引用的局部变量
-2>EncryptBase.cpp
-2>正在编译...
-1>正在嵌入清单...
-2>dllmain.cpp
-1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncrypt\ZEncryptTest\Release\BuildLog.htm”
-1>ZEncryptTest - 0 个错误，0 个警告
+1>ZEncrypt.cpp
+1>EncryptXOR.cpp
 2>正在链接...
-2>   正在创建库 E:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.lib 和对象 E:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.exp
+1>EncryptRC4.cpp
+1>EncryptNULL.cpp
+1>EncryptMD5.cpp
+1>.\EncryptMD5.cpp(57) : warning C4018: “<”: 有符号/无符号不匹配
+1>.\EncryptMD5.cpp(70) : warning C4018: “<”: 有符号/无符号不匹配
+1>.\EncryptMD5.cpp(187) : warning C4018: “>=”: 有符号/无符号不匹配
+1>.\EncryptMD5.cpp(192) : warning C4018: “<”: 有符号/无符号不匹配
+1>.\EncryptMD5.cpp(243) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\EncryptMD5.cpp(240) : warning C4101: “i”: 未引用的局部变量
 2>正在生成代码
-2>e:\work\git\zdatabackup\zdatabackup\src\zencrypt\zencrypt\encryptmd5.cpp(38) : warning C4715: “CEncryptMD5::EncryptBuffer”: 不是所有的控件路径都返回值
 2>已完成代码的生成
+1>EncryptBase.cpp
+1>正在编译...
 2>正在嵌入清单...
-2>正在执行生成后事件...
-2>已复制         1 个文件。
-2>已复制         1 个文件。
-2>已复制         1 个文件。
-2>已复制         1 个文件。
-2>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncrypt\ZEncrypt\Release\BuildLog.htm”
-2>ZEncrypt - 0 个错误，7 个警告
+1>dllmain.cpp
+2>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncrypt\ZEncryptTest\Release\BuildLog.htm”
+2>ZEncryptTest - 0 个错误，0 个警告
+1>正在链接...
+1>   正在创建库 E:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.lib 和对象 E:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncrypt\Release\ZEncrypt.exp
+1>正在生成代码
+1>e:\work\git\zdatabackup\zdatabackup\src\zencrypt\zencrypt\encryptmd5.cpp(38) : warning C4715: “CEncryptMD5::EncryptBuffer”: 不是所有的控件路径都返回值
+1>已完成代码的生成
+1>正在嵌入清单...
+1>正在执行生成后事件...
+1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncrypt\ZEncrypt\Release\BuildLog.htm”
+1>ZEncrypt - 0 个错误，7 个警告
 ========== 全部重新生成: 成功 2 个，失败 0 个，跳过 0 个 ==========
 
 1>------ 已启动全部重新生成: 项目: minizlib, 配置: Release Win32 ------
@@ -151,56 +151,56 @@
 1>minizlib - 0 个错误，37 个警告
 ========== 全部重新生成: 成功 1 个，失败 0 个，跳过 0 个 ==========
 
-1>------ 已启动全部重新生成: 项目: zencryptfileTest, 配置: Release Win32 ------
-2>------ 已启动全部重新生成: 项目: ZEncryptFile, 配置: Release Win32 ------
-2>正在删除项目“ZEncryptFile”(配置“Release|Win32”)的中间文件和输出文件
-1>正在删除项目“zencryptfileTest”(配置“Release|Win32”)的中间文件和输出文件
-2>正在编译...
+1>------ 已启动全部重新生成: 项目: ZEncryptFile, 配置: Release Win32 ------
+2>------ 已启动全部重新生成: 项目: zencryptfileTest, 配置: Release Win32 ------
+2>正在删除项目“zencryptfileTest”(配置“Release|Win32”)的中间文件和输出文件
+1>正在删除项目“ZEncryptFile”(配置“Release|Win32”)的中间文件和输出文件
 1>正在编译...
-2>stdafx.cpp
+2>正在编译...
 1>stdafx.cpp
+2>stdafx.cpp
+2>正在编译...
+2>zencryptfileTest.cpp
 1>正在编译...
-1>zencryptfileTest.cpp
-2>正在编译...
-2>ZEncryptFile.cpp
-2>ZCEncryptFile.cpp
-2>.\ZCEncryptFile.cpp(53) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>ZEncryptFile.cpp
+1>ZCEncryptFile.cpp
+1>.\ZCEncryptFile.cpp(53) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>ZCDecryptFile.cpp
+1>.\ZCDecryptFile.cpp(51) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+1>.\ZCDecryptFile.cpp(150) : warning C4532: “return”: 在终止处理期间从 __finally 块跳出的行为未定义
+1>正在编译...
+1>dllmain.cpp
+2>.\zencryptfileTest.cpp(10) : warning C4081: 应输入“newline”；找到“;”
+2>.\zencryptfileTest.cpp(15) : warning C4129: “%”: 不可识别的字符转义序列
+2>.\zencryptfileTest.cpp(27) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
-2>ZCDecryptFile.cpp
-2>.\ZCDecryptFile.cpp(51) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>.\zencryptfileTest.cpp(41) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
-2>.\ZCDecryptFile.cpp(150) : warning C4532: “return”: 在终止处理期间从 __finally 块跳出的行为未定义
-2>正在编译...
-2>dllmain.cpp
-1>.\zencryptfileTest.cpp(10) : warning C4081: 应输入“newline”；找到“;”
-1>.\zencryptfileTest.cpp(15) : warning C4129: “%”: 不可识别的字符转义序列
-1>.\zencryptfileTest.cpp(27) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
-1>.\zencryptfileTest.cpp(41) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
-1>.\zencryptfileTest.cpp(49) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
-1>.\zencryptfileTest.cpp(57) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
-1>正在链接...
-1>正在生成代码
-1>已完成代码的生成
-1>正在嵌入清单...
+2>.\zencryptfileTest.cpp(49) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
+2>.\zencryptfileTest.cpp(57) : warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(237) : 参见“fopen”的声明
 2>正在链接...
-2>   正在创建库 E:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncryptFile\Release\ZEncryptFile.lib 和对象 E:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncryptFile\Release\ZEncryptFile.exp
-2>MSVCRT.lib(cinitexe.obj) : warning LNK4098: 默认库“libcmtd.lib”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
 2>正在生成代码
-1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncryptFile\zencryptfileTest\Release\BuildLog.htm”
-1>zencryptfileTest - 0 个错误，6 个警告
 2>已完成代码的生成
 2>正在嵌入清单...
-2>正在执行生成后事件...
-2>已复制         1 个文件。
-2>已复制         1 个文件。
-2>已复制         1 个文件。
-2>已复制         1 个文件。
-2>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncryptFile\ZEncryptFile\Release\BuildLog.htm”
-2>ZEncryptFile - 0 个错误，4 个警告
+1>正在链接...
+1>   正在创建库 E:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncryptFile\Release\ZEncryptFile.lib 和对象 E:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncryptFile\Release\ZEncryptFile.exp
+1>MSVCRT.lib(cinitexe.obj) : warning LNK4098: 默认库“libcmtd.lib”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+1>正在生成代码
+2>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncryptFile\zencryptfileTest\Release\BuildLog.htm”
+2>zencryptfileTest - 0 个错误，6 个警告
+1>已完成代码的生成
+1>正在嵌入清单...
+1>正在执行生成后事件...
+1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZEncryptFile\ZEncryptFile\Release\BuildLog.htm”
+1>ZEncryptFile - 0 个错误，4 个警告
 ========== 全部重新生成: 成功 2 个，失败 0 个，跳过 0 个 ==========
 
 1>------ 已启动全部重新生成: 项目: ZShareMem, 配置: Release Win32 ------
@@ -225,8 +225,8 @@
 1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZShareMem\ZShareMem\Release\BuildLog.htm”
 1>ZShareMem - 0 个错误，0 个警告
 2>------ 已启动全部重新生成: 项目: memTest1, 配置: Release Win32 ------
-3>------ 已启动全部重新生成: 项目: memTest2, 配置: Release Win32 ------
 2>正在删除项目“memTest1”(配置“Release|Win32”)的中间文件和输出文件
+3>------ 已启动全部重新生成: 项目: memTest2, 配置: Release Win32 ------
 3>正在删除项目“memTest2”(配置“Release|Win32”)的中间文件和输出文件
 2>正在编译...
 3>正在编译...
@@ -239,14 +239,90 @@
 3>正在链接...
 2>正在链接...
 3>正在生成代码
+3>已完成代码的生成
 2>正在生成代码
 2>已完成代码的生成
-3>已完成代码的生成
 3>正在嵌入清单...
 2>正在嵌入清单...
 3>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZShareMem\memTest2\Release\BuildLog.htm”
 3>memTest2 - 0 个错误，0 个警告
 2>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZShareMem\memTest1\Release\BuildLog.htm”
 2>memTest1 - 0 个错误，0 个警告
+========== 全部重新生成: 成功 3 个，失败 0 个，跳过 0 个 ==========
+
+1>------ 已启动全部重新生成: 项目: ZConvertDll, 配置: Release Win32 ------
+2>------ 已启动全部重新生成: 项目: ZConvertFile, 配置: Release Win32 ------
+1>正在删除项目“ZConvertDll”(配置“Release|Win32”)的中间文件和输出文件
+2>正在删除项目“ZConvertFile”(配置“Release|Win32”)的中间文件和输出文件
+1>正在编译...
+1>stdafx.cpp
+2>正在编译...
+2>stdafx.cpp
+1>正在编译...
+1>ZConvertDll.cpp
+1>.\ZConvertDll.cpp(24) : warning C4996: '_swprintf': This function or variable may be unsafe. Consider using _swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(539) : 参见“_swprintf”的声明
+1>.\ZConvertDll.cpp(28) : warning C4996: '_swprintf': This function or variable may be unsafe. Consider using _swprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\stdio.h(539) : 参见“_swprintf”的声明
+1>.\ZConvertDll.cpp(227) : warning C4018: “<”: 有符号/无符号不匹配
+1>正在编译...
+1>dllmain.cpp
+1>正在链接...
+1>   正在创建库 E:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZConvertFile\Release\ZConvertDll.lib 和对象 E:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZConvertFile\Release\ZConvertDll.exp
+1>正在生成代码
+1>已完成代码的生成
+1>正在嵌入清单...
+1>正在执行生成后事件...
+1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>已复制         1 个文件。
+1>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZConvertFile\ZConvertDll\Release\BuildLog.htm”
+1>ZConvertDll - 0 个错误，3 个警告
+2>正在编译...
+2>ZConvertToZip.cpp
+2>.\ZConvertToZip.cpp(315) : warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\string.h(157) : 参见“strncpy”的声明
+2>.\ZConvertToZip.cpp(356) : warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\string.h(157) : 参见“strncpy”的声明
+2>ZConvertToFile.cpp
+2>.\ZConvertToFile.cpp(50) : warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\wchar.h(827) : 参见“_wfopen”的声明
+2>.\ZConvertToFile.cpp(102) : warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\wchar.h(827) : 参见“_wfopen”的声明
+2>.\ZConvertToFile.cpp(151) : warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\wchar.h(827) : 参见“_wfopen”的声明
+2>.\ZConvertToFile.cpp(166) : warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\wchar.h(827) : 参见“_wfopen”的声明
+2>ZConvertFileDlg.cpp
+2>ZConvertFile.cpp
+2>ZConvertCmd.cpp
+2>ConverHelper.cpp
+2>..\..\common\include\ConverHelper.cpp(42) : warning C4996: '_vsnwprintf': This function or variable may be unsafe. Consider using _vsnwprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+2>        C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\include\wchar.h(719) : 参见“_vsnwprintf”的声明
+2>正在编译资源...
+2>Microsoft (R) Windows (R) Resource Compiler Version 6.0.5724.0
+2>Copyright (C) Microsoft Corporation.  All rights reserved.
+2>正在链接...
+2>正在生成代码
+2>已完成代码的生成
+2>正在嵌入清单...
+2>正在执行生成后事件...
+2>已复制         1 个文件。
+2>已复制         1 个文件。
+2>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZConvertFile\ZConvertFile\Release\BuildLog.htm”
+2>ZConvertFile - 0 个错误，7 个警告
+3>------ 已启动全部重新生成: 项目: test, 配置: Release Win32 ------
+3>正在删除项目“test”(配置“Release|Win32”)的中间文件和输出文件
+3>正在编译...
+3>stdafx.cpp
+3>正在编译...
+3>test.cpp
+3>正在链接...
+3>正在生成代码
+3>已完成代码的生成
+3>正在嵌入清单...
+3>生成日志保存在“file://e:\WORK\git\ZDataBackUp\ZDataBackUp\src\ZConvertFile\test\Release\BuildLog.htm”
+3>test - 0 个错误，0 个警告
 ========== 全部重新生成: 成功 3 个，失败 0 个，跳过 0 个 ==========
 

@@ -111,40 +111,44 @@ HRESULT CZConvertCmd::ConvertFileBase(
 									  __in PVOID reserve 
 									  )
 {
+	HRESULT state = ERROR_SUCCESS;
 	switch(optionType)
 	{
 	case CONVERT_OPTIONCODE_ENCRPT_TOFILE:
 		{
 			CZConvertToFile ctofile;
-			return ctofile.EncryptFileToFile(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve);
+			state = ctofile.EncryptFileToFile(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve);
 		}
 		break;
 	case CONVERT_OPTIONCODE_DECRPT_FROMFILE:
 		{
 			CZConvertToFile ctofile;
-			return ctofile.DecryptFileFromFile(dstPath,srcPath,showProcDialog,passWord,passWorfLen,reserve);
+			state =  ctofile.DecryptFileFromFile(dstPath,srcPath,showProcDialog,passWord,passWorfLen,reserve);
 		}
 		break;
 	case CONVERT_OPTIONCODE_ENCRPT_TOZIP:
 		{
 			CZConvertToZip ctozip;
-			return ctozip.EncryptFileToZip(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve);
+			state =  ctozip.EncryptFileToZip(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve);
 		}
 		break;
 	case CONVERT_OPTIONCODE_DECRPT_FROMZIP:
 		{
 			CZConvertToZip ctozip;
-			return ctozip.DecryptFileFromFile(dstPath,srcPath,showProcDialog,passWord,passWorfLen,reserve);
+			state =  ctozip.DecryptFileFromFile(dstPath,srcPath,showProcDialog,passWord,passWorfLen,reserve);
 		}
 		break;
 	default:
+		state = ERROR_INVALID_PARAMETER;
 		break;
 	}
-	return ERROR_INVALID_PARAMETER;
+	ZDbgPrint(DBG_INFO,_T("ZConvertFile: ConvertFileBase state = %d"),state);
+	return state;
 }
 
 HRESULT CZConvertCmd::TransferByMem(LPTSTR memName)
 {
+	ZDbgPrint(DBG_INFO,_T("ZConvertFile: TransferByMem memName = %s"),memName);
 	CZShareMem *memshare = CreateZShareMem();
 	HRESULT nstate = ERROR_SUCCESS;
 
@@ -156,7 +160,8 @@ HRESULT CZConvertCmd::TransferByMem(LPTSTR memName)
 	WCHAR createName[MAX_PATH] = {NULL};
 	wsprintf(createName,L"%s%s",memName,CONVERT_MEM_CREATENAME_EXT);
 	memshare->InitShareMemCreator(createName);
-	nstate = memshare->WriteMsgByOpener(0,memName,wcslen(memName)*sizeof(WCHAR));
+	nstate = memshare->WriteMsgByOpener(0,createName,wcslen(createName)*sizeof(WCHAR));
+	ZDbgPrint(DBG_INFO,_T("ZConvertFile: TransferByMem createName = %s"),createName);
 	if (ERROR_SUCCESS != nstate)
 	{
 		goto END;
@@ -169,7 +174,7 @@ HRESULT CZConvertCmd::TransferByMem(LPTSTR memName)
 	{
 		goto END;
 	}
-
+	ZDbgPrint(DBG_INFO,_T("ZConvertFile: TransferByMem ReadMsgByCreator msgType = %d"),msgType);
 	switch(msgType)
 	{
 	case CONVERT_OPTIONCODE_GETINFO_FROMFILE:

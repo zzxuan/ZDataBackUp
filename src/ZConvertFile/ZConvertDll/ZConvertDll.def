@@ -1,0 +1,10 @@
+LIBRARY	"ZConvertDll"
+EXPORTS
+	GetFileInfoInFile
+	GetFileInfoInZip
+	GetFileListInZip
+	ConvertFileToFile
+	ConvertFileToZip
+	ConvertFileFromFile
+	ConvertFileFromZip
+	ConvertFileBase

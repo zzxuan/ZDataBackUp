@@ -36,7 +36,7 @@ HRESULT CZConvertToFile::EncryptFileToFile(
 	__in PVOID reserve 
 	)
 {
-	
+	ZDbgPrint(DBG_INFO,_T("EncryptFileToFile dstPath = %s,srcPath = %s"),dstPath,srcPath);
 	CHAR szAnsi[MAX_PATH] = {NULL};
 	if (0 == WideCharToMultiByte(CP_ACP, NULL, srcPath, wcslen(srcPath), szAnsi, sizeof(szAnsi), NULL, NULL))
 	{
@@ -44,6 +44,7 @@ HRESULT CZConvertToFile::EncryptFileToFile(
 		{
 			ShowLastErrMsg();
 		}
+		ZDbgPrint(DBG_INFO,_T("EncryptFileToFile err = %d,at %d"),GetLastError(),__LINE__);
 		return GetLastError();
 	}
 	m_pDstFile = _wfopen(dstPath,L"wb");
@@ -53,6 +54,8 @@ HRESULT CZConvertToFile::EncryptFileToFile(
 		{
 			ShowLastErrMsg();
 		}
+
+		ZDbgPrint(DBG_INFO,_T("EncryptFileToFile err = %d,at %d"),GetLastError(),__LINE__);
 
 		return GetLastError();
 	}
@@ -69,6 +72,7 @@ HRESULT CZConvertToFile::EncryptFileToFile(
 		{
 			ShowLastErrMsg();
 		}
+		ZDbgPrint(DBG_INFO,_T("EncryptFileToFile err = %d,at %d"),GetLastError(),__LINE__);
 		return ulResult;
 	}
 

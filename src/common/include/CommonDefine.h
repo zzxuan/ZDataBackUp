@@ -1,6 +1,8 @@
 #ifndef __COMMONDEFINE__H__
 #define __COMMONDEFINE__H__
 
+#include "ZEncrypt.h"
+
 #define PATH_MAX_LEN 512
 
 #define CONVERT_CMD_OPTION_ENCRPT_BYMEM		L"-bymem"
@@ -25,6 +27,8 @@
 #define CONVERT_MEM_CREATENAME_EXT L"_ConvertCreator"
 
 #define MEM_MAXUSE_SIZE		3*1024
+
+#define ERROR_SUCCESS_BUT_BUFFERTOOSMALL 0xFF000000
 
 #pragma pack(1)
 

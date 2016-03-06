@@ -107,6 +107,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine=""
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -129,7 +130,7 @@
 				EnableIntrinsicFunctions="true"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG"
 				MinimalRebuild="false"
-				RuntimeLibrary="0"
+				RuntimeLibrary="1"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
@@ -176,6 +177,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy /b &quot;$(TargetDir)$(ProjectName).exe&quot; &quot;../../BIN/$(ConfigurationName)/$(ProjectName).exe&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)$(ProjectName).pdb&quot; &quot;../../BIN/PDB/$(ConfigurationName)/$(ProjectName).pdb&quot;;"
 			/>
 		</Configuration>
 	</Configurations>
