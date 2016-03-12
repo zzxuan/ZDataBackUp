@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcproj", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZConvertDll", "ZConvertDll\ZConvertDll.vcproj", "{B977DBFD-F718-4C95-B193-B79BC5830359}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZConvertDllBase", "ZConvertDllBase\ZConvertDllBase.vcproj", "{5BFEE4EB-4567-47F6-A503-E300E5486AAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -29,6 +31,10 @@ Global
 		{B977DBFD-F718-4C95-B193-B79BC5830359}.Debug|Win32.Build.0 = Debug|Win32
 		{B977DBFD-F718-4C95-B193-B79BC5830359}.Release|Win32.ActiveCfg = Release|Win32
 		{B977DBFD-F718-4C95-B193-B79BC5830359}.Release|Win32.Build.0 = Release|Win32
+		{5BFEE4EB-4567-47F6-A503-E300E5486AAE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5BFEE4EB-4567-47F6-A503-E300E5486AAE}.Debug|Win32.Build.0 = Debug|Win32
+		{5BFEE4EB-4567-47F6-A503-E300E5486AAE}.Release|Win32.ActiveCfg = Release|Win32
+		{5BFEE4EB-4567-47F6-A503-E300E5486AAE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

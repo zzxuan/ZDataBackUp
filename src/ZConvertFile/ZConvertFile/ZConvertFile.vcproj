@@ -177,7 +177,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy /b &quot;$(TargetDir)$(ProjectName).exe&quot; &quot;../../BIN/$(ConfigurationName)/$(ProjectName).exe&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)$(ProjectName).pdb&quot; &quot;../../BIN/PDB/$(ConfigurationName)/$(ProjectName).pdb&quot;;"
+				CommandLine="copy /b &quot;$(TargetDir)$(ProjectName).exe&quot; &quot;../../BIN/$(ConfigurationName)/$(ProjectName).exe&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)$(ProjectName).pdb&quot; &quot;../../BIN/PDB/$(ConfigurationName)/$(ProjectName).pdb&quot;;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>

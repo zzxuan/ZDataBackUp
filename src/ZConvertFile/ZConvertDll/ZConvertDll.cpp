@@ -129,7 +129,7 @@ END:
 }
 
 
-HRESULT ConvertFileBase(
+HRESULT ConvertFileBaseExe(
 						__in LPCWSTR dstPath,
 						__in LPCWSTR srcPath,
 						__in ULONG optionType,
@@ -160,7 +160,7 @@ HRESULT ConvertFileBase(
 	return CreateExeAnNotify(optionType,&convertdata,sizeof(convertdata),NULL,n);
 }
 
-HRESULT GetFileInfoInFile(__in LPCWSTR srcPath,__out WIN32_FIND_DATAA &filedata,__out PVOID extdata,__inout UINT &extlen)
+HRESULT GetFileInfoInFileExe(__in LPCWSTR srcPath,__out WIN32_FIND_DATAA &filedata,__out PVOID extdata,__inout UINT &extlen)
 {
 	ZFileinfo fileinfo = {NULL};
 	UINT infosize = sizeof(ZFileinfo);
@@ -183,7 +183,7 @@ HRESULT GetFileInfoInFile(__in LPCWSTR srcPath,__out WIN32_FIND_DATAA &filedata,
 	return state;
 }
 
-HRESULT GetFileInfoInZip(__in LPCWSTR srcPath,__out WIN32_FIND_DATAA &filedata,__out PVOID extdata,__inout UINT &extlen)
+HRESULT GetFileInfoInZipExe(__in LPCWSTR srcPath,__out WIN32_FIND_DATAA &filedata,__out PVOID extdata,__inout UINT &extlen)
 {
 	ZFileinfo fileinfo = {NULL};
 	UINT infosize = sizeof(ZFileinfo);
@@ -207,7 +207,7 @@ HRESULT GetFileInfoInZip(__in LPCWSTR srcPath,__out WIN32_FIND_DATAA &filedata,_
 }
 
 
-HRESULT GetFileListInZip(__in LPCWSTR srcPath,std::vector<std::string> &namelist)
+HRESULT GetFileListInZipExe(__in LPCWSTR srcPath,std::vector<std::string> &namelist)
 {
 	ZZipListInfo ziplistinfo = {NULL};
 	UINT size = sizeof(ZZipListInfo);
@@ -233,22 +233,22 @@ HRESULT GetFileListInZip(__in LPCWSTR srcPath,std::vector<std::string> &namelist
 	return state;
 }
 
-HRESULT ConvertFileToFile(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG encyptType, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen)
+HRESULT ConvertFileToFileExe(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG encyptType, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen)
 {
-	return ConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_ENCRPT_TOFILE,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen);
+	return ConvertFileBaseExe(dstPath,srcPath,CONVERT_OPTIONCODE_ENCRPT_TOFILE,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen);
 }
 
-HRESULT ConvertFileToZip(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG encyptType, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen)
+HRESULT ConvertFileToZipExe(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG encyptType, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen)
 {
-	return ConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_ENCRPT_TOZIP,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen);
+	return ConvertFileBaseExe(dstPath,srcPath,CONVERT_OPTIONCODE_ENCRPT_TOZIP,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen);
 }
 
-HRESULT ConvertFileFromFile(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen)
+HRESULT ConvertFileFromFileExe(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen)
 {
-	return ConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_DECRPT_FROMFILE,NULL,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen);
+	return ConvertFileBaseExe(dstPath,srcPath,CONVERT_OPTIONCODE_DECRPT_FROMFILE,NULL,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen);
 }
 
-HRESULT ConvertFileFromZip(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen)
+HRESULT ConvertFileFromZipExe(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen)
 {
-	return ConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_DECRPT_FROMZIP,NULL,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen);
+	return ConvertFileBaseExe(dstPath,srcPath,CONVERT_OPTIONCODE_DECRPT_FROMZIP,NULL,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen);
 }

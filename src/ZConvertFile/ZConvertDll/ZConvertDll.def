@@ -1,10 +1,10 @@
 LIBRARY	"ZConvertDll"
 EXPORTS
-	GetFileInfoInFile
-	GetFileInfoInZip
-	GetFileListInZip
-	ConvertFileToFile
-	ConvertFileToZip
-	ConvertFileFromFile
-	ConvertFileFromZip
-	ConvertFileBase
+	GetFileInfoInFileExe
+	GetFileInfoInZipExe
+	GetFileListInZipExe
+	ConvertFileToFileExe
+	ConvertFileToZipExe
+	ConvertFileFromFileExe
+	ConvertFileFromZipExe
+	ConvertFileBaseExe
