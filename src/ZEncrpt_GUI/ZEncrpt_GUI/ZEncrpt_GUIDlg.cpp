@@ -8,11 +8,7 @@
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-#define RED     RGB(255,0,0)
-#define YELLOW  RGB(255,255,0)
-#define MAGENTA RGB(255,0,255)
-#define WHITE   RGB(255,255,255)
-#define BLUE    RGB(0,0,255)
+
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 

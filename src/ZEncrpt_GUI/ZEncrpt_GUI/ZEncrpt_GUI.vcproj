@@ -280,5 +280,9 @@
 		</File>
 	</Files>
 	<Globals>
+		<Global
+			Name="RESOURCE_FILE"
+			Value="ZEncrpt_GUI.rc"
+		/>
 	</Globals>
 </VisualStudioProject>

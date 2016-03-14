@@ -20,4 +20,15 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedButton2();
+
+
+	CString m_fileName;
+	CString m_passWord;
+	CString m_passWord1;
+	CComboBox m_cbEncrpt;
+	BOOL m_isDeleteSource;
+	BOOL m_isCompressFile;
+	BOOL m_isShutDown;
 };
