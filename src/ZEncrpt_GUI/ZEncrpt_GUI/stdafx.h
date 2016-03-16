@@ -55,3 +55,5 @@
 #endif
 
 
+#include "../../common/include/CommonDefine.h"
+#include "EncrptConfig.h"

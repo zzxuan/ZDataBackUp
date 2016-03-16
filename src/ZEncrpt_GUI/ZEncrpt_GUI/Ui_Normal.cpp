@@ -26,9 +26,10 @@ void CUi_Normal::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1, m_fileName);  
 	DDX_Text(pDX, IDC_EDIT2, m_passWord); 
 	DDX_Text(pDX, IDC_EDIT3, m_passWord1); 
-
 	DDX_Control(pDX,IDC_COMBO1,m_cbEncrpt);
-	//DDX_Text(pDX, IDC_EDIT1, m_fileName); 
+	DDX_Check(pDX, IDC_CHECK1, m_isSaveValue); 
+	DDX_Check(pDX, IDC_CHECK2, m_deleteOnFinish); 
+	DDX_Check(pDX, IDC_CHECK5, m_isshutDownOnFinish); 
 }
 
 
@@ -41,9 +42,15 @@ BOOL CUi_Normal::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	m_cbEncrpt.AddString(_T("RC4"));
-
-	m_cbEncrpt.SelectString(0,_T("RC4"));
+	ENCRPTMAP * pEncrptMap = &(CEncrptConfig::GetInstance()->m_EncrptTypeMap);
+	for (ENCRPTMAP::iterator it = pEncrptMap->begin();
+		it != pEncrptMap->end();
+		it++
+		)
+	{
+		m_cbEncrpt.AddString(it->first);
+	}
+	m_cbEncrpt.SelectString(0,pEncrptMap->begin()->first);
 	return TRUE;
 }
 
@@ -74,4 +81,17 @@ void CUi_Normal::OnBnClickedButton2()
 	m_fileName = dlg.GetPathName();				//取文件名全称，包括完整路径。
 
 	UpdateData(FALSE); 
+}
+
+UINT CUi_Normal::getEncrptType()
+{
+	UINT enctpye = ENCRYPT_RC4;
+	CString strstatus;
+	m_cbEncrpt.GetLBText(m_cbEncrpt.GetCurSel(), strstatus);
+	ENCRPTMAP *encmap = &(CEncrptConfig::GetInstance()->m_EncrptTypeMap);
+	if (encmap->find(strstatus) != encmap->end())
+	{
+		enctpye = (*encmap)[strstatus];
+	}
+	return enctpye;
 }

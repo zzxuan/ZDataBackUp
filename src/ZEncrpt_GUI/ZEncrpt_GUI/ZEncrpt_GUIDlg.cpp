@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "ZEncrpt_GUI.h"
 #include "ZEncrpt_GUIDlg.h"
+#include "EncrptCtrler.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -64,6 +65,7 @@ BEGIN_MESSAGE_MAP(CZEncrpt_GUIDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB_MAIN, &CZEncrpt_GUIDlg::OnTcnSelchangeTab)
 	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDOK, &CZEncrpt_GUIDlg::OnBnClickedOk)
 END_MESSAGE_MAP()
 
 
@@ -189,4 +191,39 @@ void CZEncrpt_GUIDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 	//把新的页面显示出来
 	pDialog[m_CurSelTab]->ShowWindow(SW_SHOW);
 	*pResult = 0;
+}
+
+void CZEncrpt_GUIDlg::OnBnClickedOk()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	m_item_normal.UpdateData(TRUE);
+	//这里校验
+	if (m_item_normal.m_fileName.GetLength() <= 0)
+	{
+		AfxMessageBox(_T("请输入一个有效路径！"));
+		return;
+	}
+	if (m_item_normal.m_passWord.GetLength() <= 0)
+	{
+		AfxMessageBox(_T("密码不能为空！"));
+		return;
+	}
+	if (m_item_normal.m_passWord != m_item_normal.m_passWord1)
+	{
+		AfxMessageBox(_T("两次输入的密码不一致！"));
+		return;
+	}
+
+	CEncrptCtrler ctrler;
+
+	ctrler.m_encrptType = m_item_normal.getEncrptType();
+	ctrler.m_filePath = m_item_normal.m_fileName;
+	ctrler.m_isdeleteOnFinish = m_item_normal.m_deleteOnFinish;
+	ctrler.m_isSaveValue = m_item_normal.m_isSaveValue;
+	ctrler.m_isshutDownOnFinish = m_item_normal.m_isshutDownOnFinish;
+	ctrler.m_password = m_item_normal.m_passWord;
+
+	ctrler.StartEncrpt();
+
+	OnOK();
 }

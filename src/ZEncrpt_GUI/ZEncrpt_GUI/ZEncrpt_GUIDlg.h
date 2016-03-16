@@ -38,4 +38,6 @@ private:
 	CUi_Normal m_item_normal;
 	CUi_Filelist m_item_filelist;
 	CDialog* pDialog[2];  //用来保存对话框对象指针
+public:
+	afx_msg void OnBnClickedOk();
 };

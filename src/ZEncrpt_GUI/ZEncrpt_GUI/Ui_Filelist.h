@@ -17,5 +17,10 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
 
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	DECLARE_MESSAGE_MAP()
+
+	virtual BOOL OnInitDialog();
+public:
+	CListCtrl m_FileLstCtrl;
 };

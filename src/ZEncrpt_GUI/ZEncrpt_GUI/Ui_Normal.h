@@ -28,7 +28,9 @@ public:
 	CString m_passWord;
 	CString m_passWord1;
 	CComboBox m_cbEncrpt;
-	BOOL m_isDeleteSource;
-	BOOL m_isCompressFile;
-	BOOL m_isShutDown;
+	BOOL m_isSaveValue;
+	BOOL m_deleteOnFinish;
+	BOOL m_isshutDownOnFinish;
+
+	UINT getEncrptType();
 };

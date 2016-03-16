@@ -186,6 +186,14 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\EncrptConfig.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\EncrptCtrler.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
@@ -227,6 +235,18 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\..\common\include\CommonDefine.h"
+				>
+			</File>
+			<File
+				RelativePath=".\EncrptConfig.h"
+				>
+			</File>
+			<File
+				RelativePath=".\EncrptCtrler.h"
+				>
+			</File>
 			<File
 				RelativePath=".\Resource.h"
 				>

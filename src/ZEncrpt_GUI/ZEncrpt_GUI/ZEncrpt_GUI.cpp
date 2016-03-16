@@ -58,6 +58,8 @@ BOOL CZEncrpt_GUIApp::InitInstance()
 	// 例如修改为公司或组织名
 	SetRegistryKey(_T("应用程序向导生成的本地应用程序"));
 
+	m_pszAppName = _tcsdup(_T("文档加密工具"));
+
 	CZEncrpt_GUIDlg dlg;
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
