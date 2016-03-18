@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 
 // CUi_Filelist ¶Ô»°¿ò
@@ -23,4 +24,10 @@ protected:
 	virtual BOOL OnInitDialog();
 public:
 	CListCtrl m_FileLstCtrl;
+	afx_msg void OnBnClickedButton1();
+
+	VOID AddFileToList(CString &fileName);
+	afx_msg void OnBnClickedButton2();
+
+	VOID GetFileList(std::vector<CString> &filelist);
 };

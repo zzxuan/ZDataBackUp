@@ -223,6 +223,8 @@ void CZEncrpt_GUIDlg::OnBnClickedOk()
 	ctrler.m_isshutDownOnFinish = m_item_normal.m_isshutDownOnFinish;
 	ctrler.m_password = m_item_normal.m_passWord;
 
+	m_item_filelist.GetFileList(ctrler.m_srcFilelist);
+
 	ctrler.StartEncrpt();
 
 	OnOK();
