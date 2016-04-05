@@ -225,6 +225,12 @@ void CZEncrpt_GUIDlg::OnBnClickedOk()
 
 	m_item_filelist.GetFileList(ctrler.m_srcFilelist);
 
+	if (ctrler.m_srcFilelist.size() == 0)
+	{
+		AfxMessageBox(_T("请选择源文件！"));
+		return;
+	}
+
 	ctrler.StartEncrpt();
 
 	OnOK();

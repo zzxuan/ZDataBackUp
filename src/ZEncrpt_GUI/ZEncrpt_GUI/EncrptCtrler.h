@@ -19,7 +19,8 @@ public:
 	HRESULT	StartEncrpt();
 	HRESULT	StopEncrpt();
 
-private:
 	HRESULT	EncrptThreadProc();
+private:
+	
 
 };
