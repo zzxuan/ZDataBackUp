@@ -62,4 +62,7 @@ typedef struct __ziplistinfo__
 
 #pragma pack()
 
+
+#define ENCYFILE_EXT _T(".zenc")
+
 #endif

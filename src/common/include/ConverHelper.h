@@ -10,4 +10,6 @@ VOID ShowLastErrMsg();
 
 VOID ZDbgPrint(UINT level,TCHAR * szFormat, ...);
 
+
+
 #endif

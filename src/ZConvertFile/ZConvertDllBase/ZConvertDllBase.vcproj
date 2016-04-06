@@ -87,6 +87,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy /b &quot;$(InputDir)$(ProjectName).h&quot; &quot;../../common/include/$(ProjectName).h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)$(ProjectName).dll&quot; &quot;../../BIN/$(ConfigurationName)/$(ProjectName).dll&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)$(ProjectName).lib&quot; &quot;../../common/lib/$(ProjectName).lib&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)$(ProjectName).pdb&quot; &quot;../../BIN/PDB/$(ConfigurationName)/$(ProjectName).pdb&quot;;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration

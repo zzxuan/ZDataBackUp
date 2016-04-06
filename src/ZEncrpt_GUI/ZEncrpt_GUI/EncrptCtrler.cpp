@@ -35,15 +35,35 @@ HRESULT CEncrptCtrler::EncrptThreadProc()
 	}
 	else
 	{
+		
 		for (int i=0;i<m_srcFilelist.size();i++)
 		{
+			CString dst = m_filePath + _T(".zip");
+			CString str(m_srcFilelist[i]);
+			int n = str.ReverseFind(_T('\\'));
+			TCHAR name[MAX_PATH] = {NULL};
+			_tcscpy_s(name,str.GetBuffer() + n + 1);
+			TCHAR * pstr = _tcsrchr(name,_T('.'));
+			if (NULL != pstr)
+			{
+				_tcscpy_s(pstr,MAX_PATH - _tcslen(name),_T(".zenc"));
+			}
+			else
+			{
+				_tcscat_s(name,MAX_PATH ,ENCYFILE_EXT);
+			}
+			dst += _T("&");
+			dst += name;
+
+			WCHAR * pass = m_password.GetBuffer();
+			UINT len = m_password.GetLength() * sizeof(WCHAR);
 			ConvertFileToZipDll(
-				m_filePath.GetBuffer(),
-				m_srcFilelist[i].GetBuffer(),
+				dst,
+				str,
 				m_encrptType,
-				TRUE,
-				m_password.GetBuffer(),
-				m_password.GetLength() * sizeof(WCHAR),
+				FALSE,
+				pass,
+				len,
 				NULL,0,
 				NULL,0
 				);

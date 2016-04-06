@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "ZCEncryptFile.h"
 #include <stdio.h>
+
 #include "../../common/include/zlib.h"
 #include <malloc.h>
 
@@ -33,6 +34,7 @@ HRESULT CEncryptFile::ZCEncryptFile(
 		||NULL == passwordlen
 		)
 	{
+		ZDbgPrint(DBG_ERROR,_T("ZEncryptFile :: ZCEncryptFile Error param"));
 		return ERROR_INVALID_PARAMETER;
 	}
 
@@ -53,12 +55,14 @@ HRESULT CEncryptFile::ZCEncryptFile(
 	FILE *pFile = fopen(m_filePath,"rb");
 	if (NULL == pFile)
 	{
+		ZDbgPrint(DBG_ERROR,_T("ZEncryptFile :: ZCEncryptFile Error fopen Faile m_filePath = %s err = %d"),m_filePath,GetLastError());
 		return ERROR_FILE_NOT_FOUND;
 	}
 
 	result = WriteHeader();
 	if (ERROR_SUCCESS != result)
 	{
+		ZDbgPrint(DBG_ERROR,_T("ZEncryptFile :: ZCEncryptFile Error WriteHeader Faile err = %d"),GetLastError());
 		fclose(pFile);
 		return result;
 	}
@@ -72,12 +76,14 @@ HRESULT CEncryptFile::ZCEncryptFile(
 		readlen = fread(readBuf,sizeof(UCHAR),sizeof(readBuf),pFile);
 		if (0 == readlen)
 		{
+			ZDbgPrint(DBG_INFO,_T("ZEncryptFile :: 0 == readlen"));
 			break;
 		}
 		m_readsize += readlen;
 		result = WriteOneBulk((PVOID)readBuf,readlen);
 		if (ERROR_SUCCESS != result)
 		{
+			ZDbgPrint(DBG_INFO,_T("ZEncryptFile :: WriteOneBulk Failed err = %d"),GetLastError());
 			fclose(pFile);
 			return result;
 		}
@@ -146,10 +152,9 @@ HRESULT CEncryptFile::WriteHeader()
 		&& NULL !=  m_PWriteFile(&uncomzisewrite,sizeof(USHORT),m_handlewrite,m_filetotalsize,m_readsize)
 		&& NULL != m_PWriteFile(enwriteBuf,enlen,m_handlewrite,m_filetotalsize,m_readsize))
 	{
-
 		return ERROR_SUCCESS;
 	}
-	
+	ZDbgPrint(DBG_INFO,_T("ZEncryptFile :: WRITETOZIP m_PWriteFile  Failed err = %d"),GetLastError());
 	return GetLastError();
 }
 
@@ -183,6 +188,7 @@ HRESULT CEncryptFile::WriteOneBulk( PVOID data,size_t datasize )
 	}
 	else
 	{
+		ZDbgPrint(DBG_INFO,_T("ZEncryptFile :: WRITETOZIP m_PWriteFile  Failed err = %d"),GetLastError());
 		result = GetLastError();
 	}
 

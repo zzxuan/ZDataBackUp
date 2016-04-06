@@ -193,6 +193,8 @@ void CZEncrpt_GUIDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
+CEncrptCtrler ctrler;
+
 void CZEncrpt_GUIDlg::OnBnClickedOk()
 {
 	// TODO: 在此添加控件通知处理程序代码
@@ -214,7 +216,7 @@ void CZEncrpt_GUIDlg::OnBnClickedOk()
 		return;
 	}
 
-	CEncrptCtrler ctrler;
+	
 
 	ctrler.m_encrptType = m_item_normal.getEncrptType();
 	ctrler.m_filePath = m_item_normal.m_fileName;
@@ -233,5 +235,5 @@ void CZEncrpt_GUIDlg::OnBnClickedOk()
 
 	ctrler.StartEncrpt();
 
-	OnOK();
+	//OnOK();
 }

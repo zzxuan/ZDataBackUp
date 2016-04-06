@@ -70,7 +70,7 @@ HRESULT CZConvertToZip::EncryptFileToZip(
 	}
 
 
-	if (!PathFileExists(dstPath))
+	if (!PathFileExistsA(dstAnsi))
 	{
 		m_zipFileWrite = zipOpen(dstAnsi,APPEND_STATUS_CREATE);
 	}
@@ -97,6 +97,7 @@ HRESULT CZConvertToZip::EncryptFileToZip(
 
 	HRESULT ulResult = ZEncryptFile(szAnsi,(PZEncryptFileWriteFile)global_ZConvertZip_WriteFile,
 		this,encyptType,passWord,passWorfLen,extendData,extendlen);
+
 	zipCloseFileInZip(m_zipFileWrite);
 	zipClose(m_zipFileWrite,NULL);
 	m_zipFileWrite = NULL;
@@ -165,6 +166,8 @@ size_t CZConvertToZip::ZConvertWriteFilesize_t( PVOID buf,UINT bufsize,DWORD tot
 	{
 		return bufsize;
 	}
+
+	ZDbgPrint(DBG_ERROR,_T("CZConvertToZip ::zipWriteInFileInZip Failed err = %d"),GetLastError());
 
 	return 0;
 }
