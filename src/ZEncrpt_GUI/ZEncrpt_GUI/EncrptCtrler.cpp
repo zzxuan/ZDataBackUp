@@ -34,7 +34,7 @@ HRESULT CEncrptCtrler::EncrptThreadProc()
 			m_filePath.GetBuffer(),
 			m_srcFilelist[0].GetBuffer(),
 			m_encrptType,
-			TRUE,
+			FALSE,
 			m_password.GetBuffer(),
 			m_password.GetLength() * sizeof(WCHAR),
 			NULL,0,
@@ -89,6 +89,7 @@ HRESULT CEncrptCtrler::EncrptThreadProc()
 
 	if (S_OK != state)
 	{
+		SetLastError(state);
 		ShowLastErrMsg();
 	}
 	

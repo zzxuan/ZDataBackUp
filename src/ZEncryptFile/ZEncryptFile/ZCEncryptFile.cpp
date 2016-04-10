@@ -167,7 +167,7 @@ HRESULT CEncryptFile::WriteOneBulk( PVOID data,size_t datasize )
 		return ERROR_INVALID_PARAMETER;
 	}
 
-	static UCHAR enwriteBuf[FREAD_DATABLUK_SIZE] = {NULL};
+	static UCHAR enwriteBuf[FREAD_DATABLUK_SIZE * 2] = {NULL};
 	static size_t enlen = sizeof(enwriteBuf);
 	enlen = sizeof(enwriteBuf);
 	HRESULT result = ZEncryptBuffer(comBuf,comLen,enwriteBuf,&enlen,m_encryptType,m_password,m_passwordlen);

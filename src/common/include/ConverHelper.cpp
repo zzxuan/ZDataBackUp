@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ConverHelper.h"
+#include <Windows.h>
 
 VOID ShowLastErrMsg()
 {
@@ -46,4 +47,74 @@ VOID ZDbgPrint(UINT level,TCHAR * szFormat, ...)
 	va_end (pArgList) ;
 
 	return OutputDebugString ( szBuffer) ;
+}
+
+
+/****************************************************
+
+* 注册文件关联
+* strExe: 要检测的扩展名(例如: ".txt")
+* strAppName: 要关联的应用程序名(例如: "C:/MyApp/MyApp.exe")
+* strAppKey: ExeName扩展名在注册表中的键值(例如: "txtfile")
+* strDefaultIcon: 扩展名为strAppName的图标文件(例如: *"C:/MyApp/MyApp.exe,0")
+* strDescribe: 文件类型描述
+
+****************************************************/
+
+void RegisterFileRelation(char *strExt, char *strAppName, char *strAppKey, char *strDefaultIcon, char *strDescribe)
+{
+	char strTemp[MAX_PATH];
+	HKEY hKey;
+
+	RegCreateKeyA(HKEY_CLASSES_ROOT,strExt,&hKey);
+	RegSetValueA(hKey,"",REG_SZ,strAppKey,strlen(strAppKey)+1);
+	RegCloseKey(hKey);
+
+	RegCreateKeyA(HKEY_CLASSES_ROOT,strAppKey,&hKey);
+	RegSetValueA(hKey,"",REG_SZ,strDescribe,strlen(strDescribe)+1);
+	RegCloseKey(hKey);
+
+	
+	RegCreateKeyA(HKEY_CLASSES_ROOT,strTemp,&hKey);
+	RegSetValueA(hKey,"",REG_SZ,strDefaultIcon,strlen(strDefaultIcon)+1);
+	RegCloseKey(hKey);
+
+	
+	RegCreateKeyA(HKEY_CLASSES_ROOT,strTemp,&hKey);
+	RegSetValueA(hKey,"",REG_SZ,"Open",strlen("Open")+1);
+	RegCloseKey(hKey);
+
+	
+	RegCreateKeyA(HKEY_CLASSES_ROOT,strTemp,&hKey);
+	
+	RegSetValueA(hKey,"",REG_SZ,strTemp,strlen(strTemp)+1);
+	RegCloseKey(hKey);
+}
+
+
+/****************************************************
+* 检测文件关联情况
+* strExt: 要检测的扩展名(例如: ".txt")
+* strAppKey: ExeName扩展名在注册表中的键值(例如: "txtfile")
+* 返回TRUE: 表示已关联，FALSE: 表示未关联
+
+******************************************************/
+
+BOOL CheckFileRelation(const char *strExt, const char *strAppKey)
+{
+    int nRet=FALSE;
+    HKEY hExtKey;
+    char szPath[MAX_PATH]; 
+    DWORD dwSize=sizeof(szPath); 
+    if(RegOpenKeyA(HKEY_CLASSES_ROOT,strExt,&hExtKey)==ERROR_SUCCESS)
+    {
+        RegQueryValueExA(hExtKey,NULL,NULL,NULL,(LPBYTE)szPath,&dwSize);
+        if(_stricmp(szPath,strAppKey)==0)
+        {
+            nRet=TRUE;
+        }
+        RegCloseKey(hExtKey);
+        return nRet;
+    }
+    return nRet;
 }

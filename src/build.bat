@@ -14,5 +14,7 @@ echo "Брвы ./ZConvertFile/ZConvertFile.sln"
 devenv.exe ./ZConvertFile/ZConvertFile.sln /Rebuild Release /out build.log
 echo "Брвы ./ZEncrpt_GUI/ZEncrpt_GUI.sln"
 devenv.exe ./ZEncrpt_GUI/ZEncrpt_GUI.sln /Rebuild Release /out build.log
+echo "Брвы ./ZDencrpt_GUI/ZDencrpt_GUI.sln"
+devenv.exe ./ZDencrpt_GUI/ZDencrpt_GUI.sln /Rebuild Release /out build.log
 echo "finished"
 pause

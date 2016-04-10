@@ -10,6 +10,6 @@ VOID ShowLastErrMsg();
 
 VOID ZDbgPrint(UINT level,TCHAR * szFormat, ...);
 
-
+void RegisterFileRelation(char *strExt, char *strAppName, char *strAppKey, char *strDefaultIcon, char *strDescribe);
 
 #endif
