@@ -12,5 +12,7 @@ echo "Брвы ./ZShareMem/ZShareMem.sln"
 devenv.exe ./ZShareMem/ZShareMem.sln /Rebuild Release /out build.log
 echo "Брвы ./ZConvertFile/ZConvertFile.sln"
 devenv.exe ./ZConvertFile/ZConvertFile.sln /Rebuild Release /out build.log
+echo "Брвы ./ZEncrpt_GUI/ZEncrpt_GUI.sln"
+devenv.exe ./ZEncrpt_GUI/ZEncrpt_GUI.sln /Rebuild Release /out build.log
 echo "finished"
 pause

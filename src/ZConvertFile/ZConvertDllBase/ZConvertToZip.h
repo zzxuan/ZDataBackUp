@@ -55,6 +55,7 @@ public:
 	size_t ZConvertWriteFilesize_t(PVOID buf,UINT bufsize,DWORD totallen,DWORD readoffset);
 
 	PConvertProgress m_PConvertPrg;
+	PVOID m_Handle;
 private:
 	PVOID m_zipFileRead;
 	PVOID m_zipFileWrite;

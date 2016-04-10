@@ -92,6 +92,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy /b &quot;$(InputDir)$(ProjectName).h&quot; &quot;../../common/include/$(ProjectName).h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)$(ProjectName).exe&quot; &quot;../../BIN/$(ConfigurationName)/$(ProjectName).exe&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)$(ProjectName).pdb&quot; &quot;../../BIN/PDB/$(ConfigurationName)/$(ProjectName).pdb&quot;;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -174,6 +175,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy /b &quot;$(InputDir)$(ProjectName).h&quot; &quot;../../common/include/$(ProjectName).h&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)$(ProjectName).exe&quot; &quot;../../BIN/$(ConfigurationName)/$(ProjectName).exe&quot;;&#x0D;&#x0A;copy /b &quot;$(TargetDir)$(ProjectName).pdb&quot; &quot;../../BIN/PDB/$(ConfigurationName)/$(ProjectName).pdb&quot;;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>
@@ -185,6 +187,10 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
+			<File
+				RelativePath="..\..\common\include\ConverHelper.cpp"
+				>
+			</File>
 			<File
 				RelativePath=".\EncrptConfig.cpp"
 				>
@@ -229,6 +235,10 @@
 				RelativePath=".\ZEncrpt_GUIDlg.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\ZPrgDialog.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Í·ÎÄ¼þ"
@@ -237,6 +247,10 @@
 			>
 			<File
 				RelativePath="..\..\common\include\CommonDefine.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\common\include\ConverHelper.h"
 				>
 			</File>
 			<File
@@ -273,6 +287,10 @@
 			</File>
 			<File
 				RelativePath=".\ZEncrpt_GUIDlg.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ZPrgDialog.h"
 				>
 			</File>
 		</Filter>

@@ -16,10 +16,13 @@ public:
 	BOOL	m_isSaveValue;
 	std::vector<CString> m_srcFilelist;
 
+	CDialog * m_prgDlg;
+
 	HRESULT	StartEncrpt();
 	HRESULT	StopEncrpt();
 
 	HRESULT	EncrptThreadProc();
+	VOID EncPorgess(ULONG val,ULONG total);
 private:
 	
 

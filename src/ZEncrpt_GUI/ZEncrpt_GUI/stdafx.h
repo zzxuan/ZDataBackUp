@@ -57,3 +57,5 @@
 
 #include "../../common/include/CommonDefine.h"
 #include "EncrptConfig.h"
+
+#define WM_PRG_CHANGE (WM_USER+101)

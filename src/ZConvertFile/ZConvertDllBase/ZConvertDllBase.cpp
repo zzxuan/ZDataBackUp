@@ -9,7 +9,7 @@
 
 
 HRESULT ZConvertFileBase(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG optionType, __in ULONG encyptType, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen,
-						   __in PConvertProgress pConvertPrg)
+						   __in PConvertProgress pConvertPrg,PVOID handle)
 {
 	HRESULT state = ERROR_SUCCESS;
 	switch(optionType)
@@ -18,6 +18,7 @@ HRESULT ZConvertFileBase(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG 
 		{
 			CZConvertToFile ctofile;
 			ctofile.m_PConvertPrg = pConvertPrg;
+			ctofile.m_Handle = handle;
 			state = ctofile.EncryptFileToFile(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve);
 		}
 		break;
@@ -25,6 +26,7 @@ HRESULT ZConvertFileBase(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG 
 		{
 			CZConvertToFile ctofile;
 			ctofile.m_PConvertPrg = pConvertPrg;
+			ctofile.m_Handle = handle;
 			state =  ctofile.DecryptFileFromFile(dstPath,srcPath,showProcDialog,passWord,passWorfLen,reserve);
 		}
 		break;
@@ -32,6 +34,7 @@ HRESULT ZConvertFileBase(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG 
 		{
 			CZConvertToZip ctozip;
 			ctozip.m_PConvertPrg = pConvertPrg;
+			ctozip.m_Handle = handle;
 			state =  ctozip.EncryptFileToZip(dstPath,srcPath,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve);
 		}
 		break;
@@ -39,6 +42,7 @@ HRESULT ZConvertFileBase(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG 
 		{
 			CZConvertToZip ctozip;
 			ctozip.m_PConvertPrg = pConvertPrg;
+			ctozip.m_Handle = handle;
 			state =  ctozip.DecryptFileFromFile(dstPath,srcPath,showProcDialog,passWord,passWorfLen,reserve);
 		}
 		break;
@@ -107,24 +111,24 @@ HRESULT ZGetFileListInZip(__in LPCWSTR srcPath,std::vector<std::string> &namelis
 	return state;
 }
 
-HRESULT ZConvertFileToFile(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG encyptType, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen,__in PConvertProgress pConvertPrg)
+HRESULT ZConvertFileToFile(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG encyptType, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen,__in PConvertProgress pConvertPrg,PVOID handle)
 {
-	return ZConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_ENCRPT_TOFILE,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen,pConvertPrg);
+	return ZConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_ENCRPT_TOFILE,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen,pConvertPrg,handle);
 }
 
-HRESULT ZConvertFileToZip(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG encyptType, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen,__in PConvertProgress pConvertPrg)
+HRESULT ZConvertFileToZip(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG encyptType, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen,__in PConvertProgress pConvertPrg,PVOID handle)
 {
-	return ZConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_ENCRPT_TOZIP,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen,pConvertPrg);
+	return ZConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_ENCRPT_TOZIP,encyptType,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen,pConvertPrg,handle);
 }
 
-HRESULT ZConvertFileFromFile(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen,__in PConvertProgress pConvertPrg)
+HRESULT ZConvertFileFromFile(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen,__in PConvertProgress pConvertPrg,PVOID handle)
 {
-	return ZConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_DECRPT_FROMFILE,NULL,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen,pConvertPrg);
+	return ZConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_DECRPT_FROMFILE,NULL,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen,pConvertPrg,handle);
 }
 
-HRESULT ZConvertFileFromZip(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen,__in PConvertProgress pConvertPrg)
+HRESULT ZConvertFileFromZip(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen,__in PConvertProgress pConvertPrg,PVOID handle)
 {
-	return ZConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_DECRPT_FROMZIP,NULL,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen,pConvertPrg);
+	return ZConvertFileBase(dstPath,srcPath,CONVERT_OPTIONCODE_DECRPT_FROMZIP,NULL,showProcDialog,passWord,passWorfLen,pextdata,extlen,reserve,reservelen,pConvertPrg,handle);
 }
 
 //HRESULT ZConvertDirToZip(__in LPCWSTR dstPath, __in LPCWSTR srcPath, __in ULONG encyptType, __in BOOL showProcDialog, __in PVOID passWord, __in ULONG passWorfLen, __in PVOID pextdata, __in ULONG extlen, __in PVOID reserve, __in ULONG reservelen,__in PConvertProgress pConvertPrg)

@@ -2,6 +2,7 @@
 #include "EncrptCtrler.h"
 
 #include "../../common/include/ZConvertDllBase.h"
+#include "../../common/include/ConverHelper.h"
 
 #pragma comment(lib,"../../common/lib/ZConvertDllBase.lib")
 
@@ -10,8 +11,14 @@ DWORD golable_EncrptThreadProc(LPARAM pargram)
 	return ((CEncrptCtrler *)pargram)->EncrptThreadProc();
 }
 
+VOID WINAPI golable_EncPrg(ULONG val,ULONG total,PVOID handle)
+{
+	((CEncrptCtrler *)handle)->EncPorgess(val,total);
+}
+
 CEncrptCtrler::CEncrptCtrler(void)
 {
+	m_prgDlg = NULL;
 }
 
 CEncrptCtrler::~CEncrptCtrler(void)
@@ -20,9 +27,10 @@ CEncrptCtrler::~CEncrptCtrler(void)
 
 HRESULT CEncrptCtrler::EncrptThreadProc()
 {
+	HRESULT state = S_OK;
 	if (m_srcFilelist.size() == 1)//只有一个文件直接加密
 	{
-		return ZConvertFileToFile(
+		state = ZConvertFileToFile(
 			m_filePath.GetBuffer(),
 			m_srcFilelist[0].GetBuffer(),
 			m_encrptType,
@@ -30,7 +38,9 @@ HRESULT CEncrptCtrler::EncrptThreadProc()
 			m_password.GetBuffer(),
 			m_password.GetLength() * sizeof(WCHAR),
 			NULL,0,
-			NULL,0
+			NULL,0,
+			golable_EncPrg,
+			this
 			);
 	}
 	else
@@ -57,7 +67,7 @@ HRESULT CEncrptCtrler::EncrptThreadProc()
 
 			WCHAR * pass = m_password.GetBuffer();
 			UINT len = m_password.GetLength() * sizeof(WCHAR);
-			ZConvertFileToZip(
+			state = ZConvertFileToZip(
 				dst,
 				str,
 				m_encrptType,
@@ -65,12 +75,31 @@ HRESULT CEncrptCtrler::EncrptThreadProc()
 				pass,
 				len,
 				NULL,0,
-				NULL,0
+				NULL,0,
+				golable_EncPrg,
+				this
 				);
+			if (S_OK != state)
+			{
+				SetLastError(state);
+				break;
+			}
 		}
 	}
-	
 
+	if (S_OK != state)
+	{
+		ShowLastErrMsg();
+	}
+	
+	if (NULL != m_prgDlg)
+	{
+		HWND hwnd = m_prgDlg->GetSafeHwnd();
+		if (NULL != hwnd)
+		{
+			SendMessage(hwnd,WM_CLOSE,NULL,NULL);
+		}
+	}
 	return S_OK;
 }
 
@@ -86,4 +115,16 @@ HRESULT CEncrptCtrler::StartEncrpt()
 		NULL,NULL,(LPTHREAD_START_ROUTINE)golable_EncrptThreadProc,this,NULL,NULL
 		));
 	return S_OK;
+}
+
+VOID CEncrptCtrler::EncPorgess( ULONG val,ULONG total)
+{
+	if (NULL != m_prgDlg)
+	{
+		HWND hwnd = m_prgDlg->GetSafeHwnd();
+		if (NULL != hwnd)
+		{
+			SendMessage(hwnd,WM_PRG_CHANGE,val,total);
+		}
+	}
 }

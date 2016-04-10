@@ -128,6 +128,14 @@ BEGIN
     PUSHBUTTON      "ÒÆ³ý",IDC_BUTTON2,223,10,50,14
 END
 
+IDD_DIALOG_PRG DIALOGEX 0, 0, 316, 28
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "¼ÓÃÜ½ø¶È"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,7,7,302,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -206,6 +214,14 @@ BEGIN
         RIGHTMARGIN, 333
         TOPMARGIN, 7
         BOTTOMMARGIN, 157
+    END
+
+    IDD_DIALOG_PRG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 21
     END
 END
 #endif    // APSTUDIO_INVOKED

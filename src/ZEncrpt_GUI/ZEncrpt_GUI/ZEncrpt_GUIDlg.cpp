@@ -5,6 +5,7 @@
 #include "ZEncrpt_GUI.h"
 #include "ZEncrpt_GUIDlg.h"
 #include "EncrptCtrler.h"
+#include "ZPrgDialog.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -66,6 +67,7 @@ BEGIN_MESSAGE_MAP(CZEncrpt_GUIDlg, CDialog)
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB_MAIN, &CZEncrpt_GUIDlg::OnTcnSelchangeTab)
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDOK, &CZEncrpt_GUIDlg::OnBnClickedOk)
+	ON_BN_CLICKED(IDCANCEL, &CZEncrpt_GUIDlg::OnBnClickedCancel)
 END_MESSAGE_MAP()
 
 
@@ -193,7 +195,7 @@ void CZEncrpt_GUIDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 	*pResult = 0;
 }
 
-CEncrptCtrler ctrler;
+
 
 void CZEncrpt_GUIDlg::OnBnClickedOk()
 {
@@ -217,7 +219,7 @@ void CZEncrpt_GUIDlg::OnBnClickedOk()
 	}
 
 	
-
+	CEncrptCtrler ctrler;
 	ctrler.m_encrptType = m_item_normal.getEncrptType();
 	ctrler.m_filePath = m_item_normal.m_fileName;
 	ctrler.m_isdeleteOnFinish = m_item_normal.m_deleteOnFinish;
@@ -232,8 +234,16 @@ void CZEncrpt_GUIDlg::OnBnClickedOk()
 		AfxMessageBox(_T("请选择源文件！"));
 		return;
 	}
-
+	this->ShowWindow(SW_HIDE);
+	ZPrgDialog prg;
+	ctrler.m_prgDlg = &prg;
 	ctrler.StartEncrpt();
+	prg.DoModal();
+	OnOK();
+}
 
-	//OnOK();
+void CZEncrpt_GUIDlg::OnBnClickedCancel()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	OnCancel();
 }

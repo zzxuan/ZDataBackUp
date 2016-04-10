@@ -27,6 +27,7 @@ size_t WINAPI global_ZConvertZip_WriteFile(PVOID buf,UINT bufsize,PVOID handle,D
 CZConvertToZip::CZConvertToZip(void)
 {
 	m_PConvertPrg = NULL;
+	m_Handle = NULL;
 }
 
 CZConvertToZip::~CZConvertToZip(void)
@@ -155,7 +156,7 @@ size_t CZConvertToZip::ZConvertReadFile( PVOID buf,UINT bufsize )
 	if (NULL != m_PConvertPrg)
 	{
 		m_srcReadSize += n;
-		m_PConvertPrg(m_srcReadSize,m_srcFileSize);
+		m_PConvertPrg(m_srcReadSize,m_srcFileSize,m_Handle);
 	}
 	return n;
 }
@@ -173,7 +174,7 @@ size_t CZConvertToZip::ZConvertWriteFilesize_t( PVOID buf,UINT bufsize,DWORD tot
 	{
 		if (NULL != m_PConvertPrg)
 		{
-			m_PConvertPrg(readoffset,totallen);
+			m_PConvertPrg(readoffset,totallen,m_Handle);
 		}
 		return bufsize;
 	}

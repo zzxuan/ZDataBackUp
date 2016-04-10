@@ -14,6 +14,7 @@ public:
 	~CZConvertToFile(void);
 
 	PConvertProgress m_PConvertPrg;
+	PVOID m_Handle;
 
 	HRESULT EncryptFileToFile(
 		__in LPCTSTR dstPath,

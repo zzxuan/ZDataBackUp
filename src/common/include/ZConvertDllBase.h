@@ -2,7 +2,7 @@
 #define __ZCONVERTDLLBASE__H__
 #include <vector>
 
-typedef VOID (WINAPI *PConvertProgress)(ULONG val,ULONG total);
+typedef VOID (WINAPI *PConvertProgress)(ULONG val,ULONG total,PVOID handle);
 
 HRESULT ZConvertFileBase(
 						   __in LPCWSTR dstPath,
@@ -16,7 +16,8 @@ HRESULT ZConvertFileBase(
 						   __in ULONG extlen,
 						   __in PVOID reserve,
 						   __in ULONG reservelen,
-						   __in PConvertProgress pConvertPrg = NULL
+						   __in PConvertProgress pConvertPrg = NULL,
+						   PVOID handle = NULL
 						   );
 
 HRESULT ZGetFileInfoInFile(
@@ -44,7 +45,8 @@ HRESULT ZConvertFileToFile(__in LPCWSTR dstPath,
 							 __in ULONG extlen,
 							 __in PVOID reserve,
 							 __in ULONG reservelen,
-							 __in PConvertProgress pConvertPrg = NULL);
+							 __in PConvertProgress pConvertPrg = NULL,
+							 PVOID handle = NULL);
 
 HRESULT ZConvertFileToZip(__in LPCWSTR dstPath,
 							__in LPCWSTR srcPath,
@@ -56,7 +58,8 @@ HRESULT ZConvertFileToZip(__in LPCWSTR dstPath,
 							__in ULONG extlen,
 							__in PVOID reserve,
 							__in ULONG reservelen,
-							__in PConvertProgress pConvertPrg = NULL);
+							__in PConvertProgress pConvertPrg = NULL,
+							PVOID handle = NULL);
 
 
 HRESULT ZConvertFileFromFile(__in LPCWSTR dstPath,
@@ -68,7 +71,8 @@ HRESULT ZConvertFileFromFile(__in LPCWSTR dstPath,
 							   __in ULONG extlen,
 							   __in PVOID reserve,
 							   __in ULONG reservelen,
-							   __in PConvertProgress pConvertPrg = NULL);
+							   __in PConvertProgress pConvertPrg = NULL,
+							   PVOID handle = NULL);
 
 
 HRESULT ZConvertFileFromZip(__in LPCWSTR dstPath,
@@ -80,6 +84,7 @@ HRESULT ZConvertFileFromZip(__in LPCWSTR dstPath,
 							  __in ULONG extlen,
 							  __in PVOID reserve,
 							  __in ULONG reservelen,
-							  __in PConvertProgress pConvertPrg = NULL);
+							  __in PConvertProgress pConvertPrg = NULL,
+							  PVOID handle = NULL);
 
 #endif

@@ -20,6 +20,7 @@ size_t WINAPI global_ZConvertFile_WriteFile(PVOID buf,UINT bufsize,PVOID handle,
 CZConvertToFile::CZConvertToFile(void)
 {
 	m_PConvertPrg = NULL;
+	m_Handle = NULL;
 }
 
 CZConvertToFile::~CZConvertToFile(void)
@@ -137,7 +138,7 @@ size_t CZConvertToFile::ZConvertReadFile( PVOID buf,UINT bufsize )
 
 		if (NULL != m_PConvertPrg)
 		{
-			m_PConvertPrg(ftell(m_pSrcFile),m_srcFileSize);
+			m_PConvertPrg(ftell(m_pSrcFile),m_srcFileSize,m_Handle);
 		}
 
 		return readsize;
@@ -153,7 +154,7 @@ size_t CZConvertToFile::ZConvertWriteFilesize_t( PVOID buf,UINT bufsize,DWORD to
 
 		if (NULL != m_PConvertPrg)
 		{
-			m_PConvertPrg(readoffset,totallen);
+			m_PConvertPrg(readoffset,totallen,m_Handle);
 		}
 
 		return writesize;
