@@ -230,11 +230,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\ZConvertFile\ZConvertToFile.cpp"
+				RelativePath=".\ZConvertToFile.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\ZConvertFile\ZConvertToZip.cpp"
+				RelativePath=".\ZConvertToZip.cpp"
 				>
 			</File>
 		</Filter>
@@ -260,11 +260,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\ZConvertFile\ZConvertToFile.h"
+				RelativePath=".\ZConvertToFile.h"
 				>
 			</File>
 			<File
-				RelativePath="..\ZConvertFile\ZConvertToZip.h"
+				RelativePath=".\ZConvertToZip.h"
 				>
 			</File>
 		</Filter>

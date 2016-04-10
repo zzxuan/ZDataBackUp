@@ -1,7 +1,10 @@
 #ifndef __ZCONVERTDLLBASE__H__
 #define __ZCONVERTDLLBASE__H__
+#include <vector>
 
-HRESULT ConvertFileBaseDll(
+typedef VOID (WINAPI *PConvertProgress)(ULONG val,ULONG total);
+
+HRESULT ZConvertFileBase(
 						   __in LPCWSTR dstPath,
 						   __in LPCWSTR srcPath,
 						   __in ULONG optionType,
@@ -12,14 +15,26 @@ HRESULT ConvertFileBaseDll(
 						   __in PVOID pextdata,
 						   __in ULONG extlen,
 						   __in PVOID reserve,
-						   __in ULONG reservelen
+						   __in ULONG reservelen,
+						   __in PConvertProgress pConvertPrg = NULL
 						   );
 
-HRESULT GetFileInfoInFileDll(__in LPCWSTR srcPath,__out WIN32_FIND_DATAA &filedata,__out PVOID extdata,__inout UINT &extlen);
-HRESULT GetFileInfoInZipDll(__in LPCWSTR srcPath,__out WIN32_FIND_DATAA &filedata,__out PVOID extdata,__inout UINT &extlen);
-HRESULT GetFileListInZipDll(__in LPCWSTR srcPath,std::vector<std::string> &namelist);
+HRESULT ZGetFileInfoInFile(
+							 __in LPCWSTR srcPath,
+							 __out WIN32_FIND_DATAA &filedata,
+							 __out PVOID extdata,
+							 __inout UINT &extlen
+							 );
+HRESULT ZGetFileInfoInZip(__in LPCWSTR srcPath,
+							__out WIN32_FIND_DATAA &filedata,
+							__out PVOID extdata,
+							__inout UINT &extlen
+							);
+HRESULT ZGetFileListInZip(__in LPCWSTR srcPath,
+							std::vector<std::string> &namelist
+							);
 
-HRESULT ConvertFileToFileDll(__in LPCWSTR dstPath,
+HRESULT ZConvertFileToFile(__in LPCWSTR dstPath,
 							 __in LPCWSTR srcPath,
 							 __in ULONG encyptType,
 							 __in BOOL showProcDialog,
@@ -28,9 +43,10 @@ HRESULT ConvertFileToFileDll(__in LPCWSTR dstPath,
 							 __in PVOID pextdata,
 							 __in ULONG extlen,
 							 __in PVOID reserve,
-							 __in ULONG reservelen);
+							 __in ULONG reservelen,
+							 __in PConvertProgress pConvertPrg = NULL);
 
-HRESULT ConvertFileToZipDll(__in LPCWSTR dstPath,
+HRESULT ZConvertFileToZip(__in LPCWSTR dstPath,
 							__in LPCWSTR srcPath,
 							__in ULONG encyptType,
 							__in BOOL showProcDialog,
@@ -39,10 +55,11 @@ HRESULT ConvertFileToZipDll(__in LPCWSTR dstPath,
 							__in PVOID pextdata,
 							__in ULONG extlen,
 							__in PVOID reserve,
-							__in ULONG reservelen);
+							__in ULONG reservelen,
+							__in PConvertProgress pConvertPrg = NULL);
 
 
-HRESULT ConvertFileFromFileDll(__in LPCWSTR dstPath,
+HRESULT ZConvertFileFromFile(__in LPCWSTR dstPath,
 							   __in LPCWSTR srcPath,
 							   __in BOOL showProcDialog,
 							   __in PVOID passWord,
@@ -50,10 +67,11 @@ HRESULT ConvertFileFromFileDll(__in LPCWSTR dstPath,
 							   __in PVOID pextdata,
 							   __in ULONG extlen,
 							   __in PVOID reserve,
-							   __in ULONG reservelen);
+							   __in ULONG reservelen,
+							   __in PConvertProgress pConvertPrg = NULL);
 
 
-HRESULT ConvertFileFromZipDll(__in LPCWSTR dstPath,
+HRESULT ZConvertFileFromZip(__in LPCWSTR dstPath,
 							  __in LPCWSTR srcPath,
 							  __in BOOL showProcDialog,
 							  __in PVOID passWord,
@@ -61,6 +79,7 @@ HRESULT ConvertFileFromZipDll(__in LPCWSTR dstPath,
 							  __in PVOID pextdata,
 							  __in ULONG extlen,
 							  __in PVOID reserve,
-							  __in ULONG reservelen);
+							  __in ULONG reservelen,
+							  __in PConvertProgress pConvertPrg = NULL);
 
 #endif

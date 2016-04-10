@@ -22,7 +22,7 @@ HRESULT CEncrptCtrler::EncrptThreadProc()
 {
 	if (m_srcFilelist.size() == 1)//只有一个文件直接加密
 	{
-		return ConvertFileToFileDll(
+		return ZConvertFileToFile(
 			m_filePath.GetBuffer(),
 			m_srcFilelist[0].GetBuffer(),
 			m_encrptType,
@@ -57,7 +57,7 @@ HRESULT CEncrptCtrler::EncrptThreadProc()
 
 			WCHAR * pass = m_password.GetBuffer();
 			UINT len = m_password.GetLength() * sizeof(WCHAR);
-			ConvertFileToZipDll(
+			ZConvertFileToZip(
 				dst,
 				str,
 				m_encrptType,

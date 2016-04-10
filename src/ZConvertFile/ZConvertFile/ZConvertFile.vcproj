@@ -225,14 +225,6 @@
 				RelativePath=".\ZConvertFileDlg.cpp"
 				>
 			</File>
-			<File
-				RelativePath=".\ZConvertToFile.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\ZConvertToZip.cpp"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Í·ÎÄ¼þ"
@@ -269,14 +261,6 @@
 			</File>
 			<File
 				RelativePath=".\ZConvertFileDlg.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ZConvertToFile.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ZConvertToZip.h"
 				>
 			</File>
 		</Filter>

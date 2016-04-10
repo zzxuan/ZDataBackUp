@@ -4,8 +4,8 @@
 #include "../../common/include/ZEncrypt.h"
 #include "../../common/include/ZShareMem.h"
 
-#include "ZConvertToFile.h"
-#include "ZConvertToZip.h"
+#include "../ZConvertDllBase/ZConvertToFile.h"
+#include "../ZConvertDllBase/ZConvertToZip.h"
 
 #pragma comment(lib,"../../common/lib/ZShareMem.lib")//¹²ÏíÄÚ´æ
 
